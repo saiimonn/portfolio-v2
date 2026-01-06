@@ -14,8 +14,8 @@ const Landing = () => {
           </div>
         </div>
         
-        <div>
-          <Image src = "/images/spider.png" alt = "spider" width = {500} height = {200} />
+        <div className = "relative size-full">
+          <Image src = "/images/spider.png" alt = "spider" fill className = "object-contain" priority />
         </div>
       </div>
       
