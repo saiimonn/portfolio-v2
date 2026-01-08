@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import TechCarousel from "../components/techCarousel";
+import ProjectList from "../components/projectList";
 
 const Landing = () => {
   return (
@@ -87,11 +89,11 @@ const Landing = () => {
       </div>
       
       {/* About Me Section Container */}
-      <div className="flex w-full min-h-screen p-8 text-white">
+      <div className="flex w-full h-auto my-28 p-8 text-white">
         
         <div className="flex items-center justify-start 32">
           <h2 
-            className="text-8xl font-bold text-blood uppercase tracking-tighter whitespace-nowrap"
+            className="text-8xl font-medium text-blood uppercase tracking-tighter whitespace-nowrap"
             style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
           >
             About Me
@@ -121,7 +123,16 @@ const Landing = () => {
         </div>
       </div>
       
+      <div className = "relative w-full before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-linear-to-r before:from-[#121212] before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-linear-to-l after:from-[#121212] after:to-transparent mb-12">
+        <TechCarousel />
+      </div>
       
+      <div className = "w-full p-12 flex flex-col">
+        <div className = "mb-8">
+          <h1 className = "text-8xl font-medium text-blood uppercase tracking-tighter whitespace-nowrap">Selected Works</h1>
+        </div>
+        <ProjectList />
+      </div>
     </div>
   )
 }
