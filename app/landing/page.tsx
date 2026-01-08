@@ -3,14 +3,15 @@ import Link from "next/link";
 
 const Landing = () => {
   return (
-    <div className="flex flex-col h-screen font-sans bg-[--background]">
+    <div className="flex flex-col min-h-screen font-sans bg-[--background]">
+      
       {/* Hero Red Gradient*/}
-      <div className="w-full flex flex-row h-[70%] bg-[linear-gradient(135deg,#7A0F0F_0%,#7D1414_54%,#681212_100%)] p-4">
+      <div className="w-full flex flex-row h-[70vh] bg-[linear-gradient(135deg,#7A0F0F_0%,#7D1414_54%,#681212_100%)] p-4">
         <div className = "flex items-center w-[60%]">
           <div className = "flex flex-col">
             <h1 className = "text-8xl font-semibold">Saiimonn</h1>
-            <h3 className = "text-3xl font-medium opacity-70">Learning Fast</h3>
-            <h3 className = "text-3xl font-medium opacity-70">Building Faster</h3>
+            <h3 className = "text-3xl font-medium opacity-70">Web Development</h3>
+            <h3 className = "text-3xl font-medium opacity-70">Machine Learning</h3>
           </div>
         </div>
         
@@ -19,6 +20,7 @@ const Landing = () => {
         </div>
       </div>
       
+      {/* Title and Social Links */}
       <div className = "flex flex-row justify-between p-4">
         <div className = "flex items-center space-x-4 text-white">
           <div className="p-4 rounded-full border hover:bg-white transition-all duration-300 group">
@@ -79,10 +81,47 @@ const Landing = () => {
         </div>
         
         <div className = "text-right">
-          <h2 className = "text-blood text-6xl font-semibold">Full-Stack Developer</h2>
-          <h2 className = "text-blood text-4xl font-semibold">Based in Cebu, Philippines</h2>
+          <h2 className = "text-blood md:text-5xl xl:text-6xl 2xl:text-8xl text-4xl font-semibold">Full-Stack Developer</h2>
+          <h2 className = "text-blood md:text-3xl xl:text-4xl 2xl:text-6xl text-2xl font-semibold">Based in Cebu, Philippines</h2>
         </div>
       </div>
+      
+      {/* About Me Section Container */}
+      <div className="flex w-full min-h-screen p-8 text-white">
+        
+        <div className="flex items-center justify-start 32">
+          <h2 
+            className="text-8xl font-bold text-blood uppercase tracking-tighter whitespace-nowrap"
+            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+          >
+            About Me
+          </h2>
+        </div>
+      
+
+        <div className="flex flex-1 items-center justify-center px-12 gap-32">
+          
+          <div className="relative size-128 aspect-square bg-gray-300 shrink-0">
+             <Image src="/images/me.jpg" alt="Sai" fill className="object-cover" /> 
+          </div>
+      
+          <div className="max-w-xl h-128">
+            <div className = "h-full space-y-12">
+              <h3 className="text-7xl font-semibold text-blood">Hello I&apos;m Sai</h3>
+              <p>stuff here</p>
+              <p className="text-lg leading-relaxed">
+                Lorem Ipsum is simply dummy text of the printing and  typesetting industry. 
+                Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of  type and scrambled it to make a 
+                type specimen book. It has survived not  only five centuries, but also the leap into electronic typesetting,  remaining essentially unchanged. 
+                It was popularised in the 1960s with  the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software 
+                like Aldus PageMaker  including versions of Lorem Ipsum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
     </div>
   )
 }
