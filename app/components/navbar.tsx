@@ -12,7 +12,7 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-100 w-auto">
+    <nav className="absolute top-8 left-1/2 -translate-x-1/2 z-100 w-auto">
       <div className="flex items-center gap-6 px-6 py-3 bg-white/5 backdrop-blur-lg border border-white/10 rounded-full shadow-2xl">
         <ul className="flex items-center gap-6">
           {navLinks.map((link) => {

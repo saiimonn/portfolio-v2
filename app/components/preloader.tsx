@@ -6,6 +6,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    // 1. Numerical Count Logic
     const interval = setInterval(() => {
       setCount((prev) => {
         if (prev >= 100) {
@@ -14,21 +15,24 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
         }
         return prev + 1;
       });
-    }, 15); 
+    }, 25); 
 
+    // 2. Exit Animation
     if (count === 100) {
       const tl = gsap.timeline({
-        onComplete: onComplete, 
+        onComplete: onComplete,
       });
 
-      tl.to(".preloader-text", {
+      tl.to(".count-text", {
         opacity: 0,
+        y: -50,
         duration: 0.5,
-        delay: 0.5,
+        delay: 0.3,
+        ease: "power2.in",
       })
-      .to(".preloader-screen", {
-        yPercent: -100,
-        duration: 1,
+      .to(".preloader-container", {
+        yPercent: -100, 
+        duration: 1.2,
         ease: "power4.inOut",
       });
     }
@@ -37,9 +41,9 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   }, [count, onComplete]);
 
   return (
-    <div className="preloader-screen fixed inset-0 z-100 flex items-end p-12 bg-[#0a0a0a] text-white">
-      <div className="preloader-text overflow-hidden">
-        <h1 className="text-[15vw] font-bold leading-none select-none">
+    <div className="preloader-container fixed inset-0 z-100 flex items-end p-12 bg-[#0a0a0a] text-white">
+      <div className="overflow-hidden">
+        <h1 className="count-text text-[15vw] font-bold leading-none select-none">
           {count}
         </h1>
       </div>
