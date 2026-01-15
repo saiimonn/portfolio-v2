@@ -1,54 +1,8 @@
 @import "tailwindcss";
 
-@font-face {
-    font-family: 'GeneralSans';
-    src: url("/fonts/GeneralSans-Regular.woff2") format("woff2"),
-        url("/fonts/GeneralSans-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'GeneralSans';
-    src: url("/fonts/GeneralSans-Medium.woff2") format("woff2"),
-         url("/fonts/GeneralSans-Medium.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'GeneralSans';
-    src: url("/fonts/GeneralSans-Semibold.woff2") format("woff2"),
-         url("/fonts/GeneralSans-Semibold.woff") format("woff");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'GeneralSans';
-    src: url("/fonts/GeneralSans-Bold.woff2") format("woff2"),
-         url("/fonts/GeneralSans-Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'GeneralSans';
-    src: url("/fonts/GeneralSans-Variable.woff2") format("woff2"),
-         url("/fonts/GeneralSans-Variable.woff") format("woff");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-}
-
 :root {
   --background: #121212;
   --textColor: #f9f6ee;
-  font-family: 'GeneralSans', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,7 +10,6 @@
     --background: #121212;
     --textWhite: #f9f6ee;
     --textRed: #a30000;
-    font-family: 'GeneralSans', sans-serif;
   }
 }
 
