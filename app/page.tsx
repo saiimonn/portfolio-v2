@@ -17,25 +17,20 @@ export default function Home() {
     if (!isLoading) {
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-      // Startup Animation Sequence
-      tl.fromTo(".nav-wrapper", 
-        { y: -120, opacity: 0 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 1.5, 
-          delay: 0.3 
+      tl.fromTo(".nav-wrapper",
+        { y: -120, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          delay: 0.3
         }
       )
-      .to(".text-up", {
-        y: 0,
-        duration: 1.5,
-        stagger: 0.2,
-      }, "-=0.8")
-      .to(".animate-fade", {
-        opacity: 1,
-        duration: 1.2,
-      }, "-=1.2");
+        .to(".text-up", {
+          y: 0,
+          duration: 1.5,
+          stagger: 0.2,
+        }, "-=0.8");
     }
   }, { scope: container, dependencies: [isLoading] });
   
@@ -43,7 +38,7 @@ export default function Home() {
     <div ref={container} className="bg-black">
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       
-      <div className={`nav-wrapper relative z-60 ${isLoading ? 'invisible' : 'visible'}`}>
+      <div className={`nav-wrapper fixed top-8 left-1/2 z-60 ${isLoading ? 'invisible' : 'visible'}`}>
         <Nav />
       </div>
 
