@@ -1,6 +1,9 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Nav = () => {
+  const pathname = usePathname();
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -9,20 +12,24 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-      <div className="flex items-center gap-6 px-4 py-3 bg-black/10 backdrop-blur-md border border-black/20 rounded-2xl shadow-lg">
-        {/* Navigation Links */}
-        <ul className="flex items-center gap-5">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <Link
-                href={link.href}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200"
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
+    <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-100 w-auto">
+      <div className="flex items-center gap-6 px-6 py-3 bg-white/5 backdrop-blur-lg border border-white/10 rounded-full shadow-2xl">
+        <ul className="flex items-center gap-6">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <li key={link.name}>
+                <Link
+                  href={link.href}
+                  className={`text-sm font-medium tracking-wide transition-all duration-300 ${
+                    isActive ? "text-white" : "text-white/40 hover:text-white"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>
