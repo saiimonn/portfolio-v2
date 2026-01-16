@@ -60,3 +60,8 @@ body {
   pointer-events: none;
   animation: noise 0.5s steps(5) infinite;
 }
+
+.about-card {
+    transition: transform 0.1s linear;
+    margin-top: 0;
+}
