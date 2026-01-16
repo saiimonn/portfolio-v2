@@ -63,7 +63,7 @@ const ProjectList = () => {
       {projects.map((item, idx) => (
         <div 
           key={idx}
-          className="project-row flex flex-row space-x-4 p-8 border-b border-[#363636] text-white group cursor-pointer transition-colors hover:bg-white/5"
+          className="project-row flex flex-row space-x-4 p-8 border-b border-[#363636] text-foreground group cursor-pointer transition-colors hover:bg-foreground/5"
         >
           <p className="text-xl tracking-wide opacity-50 group-hover:opacity-100 transition-opacity">
             [{ item.number }]

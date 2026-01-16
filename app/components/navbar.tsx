@@ -22,7 +22,7 @@ const Nav = () => {
                 <Link
                   href={link.href}
                   className={`text-sm font-medium tracking-wide transition-all duration-300 ${
-                    isActive ? "text-white" : "text-white/40 hover:text-white"
+                    isActive ? "text-foreground" : "text-foreground/40 hover:text-foreground"
                   }`}
                 >
                   {link.name}

@@ -23,7 +23,7 @@ const TechCarousel = () => {
                 key = {index}
                 className = "group relative mx-12 flex flex-col items-center justify-center cursor-pointer"
               >
-                <span className="scale-0 rounded bg-zinc-700 px-2 py-1 text-xs text-white transition-all group-hover:scale-100 group-hover:-translate-y-2 opacity-0 group-hover:opacity-100 whitespace-nowrap z-50">
+                <span className="scale-0 rounded bg-zinc-700 px-2 py-1 text-xs text-foreground transition-all group-hover:scale-100 group-hover:-translate-y-2 opacity-0 group-hover:opacity-100 foregroundspace-nowrap z-50">
                   {item.label}
                 </span>
                 

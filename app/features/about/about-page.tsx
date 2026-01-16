@@ -47,7 +47,7 @@ export default function AboutPage() {
       
       <section
         ref={container}
-        className="min-h-screen bg-[#121212] text-white flex items-center"
+        className="min-h-screen bg-[#121212] text-foreground flex items-center"
       >
         <div className="mx-auto max-w-4xl px-6">
           {/* Body text */}
@@ -72,7 +72,7 @@ export default function AboutPage() {
             <div>
               <h1 className = "text-2xl font-semibold line-reveal">Connect</h1>
               <p className="fade-reveal">
-                For inquiries, email me at <span className = "hover:text-white hover:cursor-pointer">gementizasgg08@gmail.com</span>
+                For inquiries, email me at <span className = "hover:text-foreground hover:cursor-pointer">gementizasgg08@gmail.com</span>
               </p>
             </div>
           </div>

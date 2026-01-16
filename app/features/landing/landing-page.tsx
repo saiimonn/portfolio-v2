@@ -50,7 +50,7 @@ const LandingPage = () => {
           <div className="flex items-center w-full h-full" />
 
           <div className="flex flex-row justify-between items-end w-full">
-            <div className="text-white">
+            <div className="text-foreground">
               <div className="overflow-hidden">
                 <h1 className="text-up text-7xl md:text-8xl text-[#FFFFF0] font-extrabold tracking-tighter leading-none translate-y-[110%]">
                   Saiimonn
@@ -63,7 +63,7 @@ const LandingPage = () => {
               </div>
             </div>
           
-            <div className="text-right text-white">
+            <div className="text-right text-foreground">
               <div className="overflow-hidden">
                 <h2 className="text-up text-3xl md:text-6xl font-bold translate-y-[110%]">
                   Full-Stack Developer
@@ -83,7 +83,7 @@ const LandingPage = () => {
       <main className="relative z-40 bg-[#121212] shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
         
         {/* About Me Section */}
-        <section ref={aboutContainer} className="about-content flex w-full h-auto py-32 px-8 text-white border-b border-white/5">
+        <section ref={aboutContainer} className="about-content flex w-full h-auto py-32 px-8 text-foreground border-b border-foreground/5">
           <div className="flex items-center justify-start">
             <h2 className="text-8xl font-medium text-blood uppercase tracking-tighter whitespace-nowrap" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
               About Me
