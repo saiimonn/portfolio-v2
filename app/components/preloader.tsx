@@ -15,7 +15,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
         }
         return prev + 1;
       });
-    }, 25); 
+    }, 10); 
 
     // 2. Exit Animation
     if (count === 100) {

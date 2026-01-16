@@ -38,7 +38,7 @@ export default function Home() {
     <div ref={container} className="bg-black">
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       
-      <div className={`nav-wrapper fixed top-8 left-1/2 z-60 ${isLoading ? 'invisible' : 'visible'}`}>
+      <div className={`nav-wrapper fixed left-1/2 z-60 ${isLoading ? 'invisible' : 'visible'}`}>
         <Nav />
       </div>
 
