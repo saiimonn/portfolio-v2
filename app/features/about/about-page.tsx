@@ -6,6 +6,13 @@ import { useGSAP } from "@gsap/react";
 import Nav from "@/app/components/navbar";
 import Link from "next/link";
 
+const socials = [
+  { name: "Facebook", url: "https://www.facebook.com/simongabriel.gementiza/" },
+  { name: "Instagram", url: "https://www.instagram.com/_saiimonn/" },
+  { name: "Github", url: "https://www.github.com/saiimonn" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/simon-gabriel-gementiza-9abb59279/"}
+]
+
 export default function AboutPage() {
   const container = useRef<HTMLDivElement | null>(null);
 
@@ -79,22 +86,26 @@ export default function AboutPage() {
                 <h1 className="text-sm font-semibold uppercase text-zinc-500 line-reveal">Connect</h1>
               </div>
               <p className="fade-reveal mb-6 text-lg">
-                For inquiries, reach out via <span className="text-white border-b border-zinc-700 hover:border-white transition-colors cursor-pointer">gementizasgg08@gmail.com</span>
+                For inquiries, reach out via
+                <Link href = "mailto:gementizasgg08@gmail.com">
+                  <span className="text-white border-b border-zinc-700 hover:border-white transition-colors cursor-pointer"> gementizasgg08@gmail.com</span>
+                </Link>
               </p>
               
               <div className="flex flex-wrap gap-x-6 gap-y-2">
-                {["Facebook", "Instagram", "Github", "LinkedIn"].map((platform) => (
-                  <Link 
-                    key={platform}
-                    href={platform === "Github" ? "https://www.github.com/saiimonn" : "#"} 
+                {socials.map((platform) => (
+                  <Link
+                    key={platform.name}
+                    href={platform.url}
+                    target="_blank"
+                    rel = "noopener noreferrer"
                     className="fade-reveal text-sm hover:text-white transition-colors"
                   >
-                    {platform}
+                    {platform.name}
                   </Link>
                 ))}
               </div>
             </div>
-            
           </div>
         </div>
       </section>
