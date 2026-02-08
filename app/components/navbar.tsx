@@ -8,7 +8,7 @@ const Nav = () => {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Work", href: "/projects" },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact", href: "mailto:gementizasgg08@gmail.com" },
   ];
 
   return (

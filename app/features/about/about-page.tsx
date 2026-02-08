@@ -15,88 +15,89 @@ export default function AboutPage() {
         defaults: { ease: "power4.out" },
       });
 
-      // Initial states
       gsap.set(".line-reveal", { y: "100%" });
       gsap.set(".fade-reveal", { opacity: 0, y: 12 });
+      gsap.set(".nav-wrapper", { opacity: 0, y: -20 });
 
-      // Timeline
       tl.to(".line-reveal", {
         y: 0,
         duration: 1.2,
-        stagger: 0.08,
+        stagger: 0.1,
         delay: 0.2,
-      }).to(
+      })
+      .to(
         ".fade-reveal",
         {
           opacity: 1,
           y: 0,
           duration: 0.9,
-          stagger: 0.12,
+          stagger: 0.1,
         },
-        "-=0.6"
-      );
+        "-=0.8"
+      )
+      .to(".nav-wrapper", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out"
+      }, "-=0.5");
     },
     { scope: container }
   );
 
   return (
-    <>
-      <div className="nav-wrapper fixed left-1/2 z-60">
+    <div ref={container} className="bg-[#121212] min-h-screen">
+      <div className="nav-wrapper fixed left-1/2 -translate-x-1/2 top-6 z-50">
         <Nav />
       </div>
       
-      <section
-        ref={container}
-        className="min-h-screen bg-[#121212] text-foreground flex items-center"
-      >
+      <section className="min-h-screen text-zinc-300 flex items-center">
         <div className="mx-auto max-w-4xl px-6">
-          {/* Body text */}
-          <div className="space-y-6 text-zinc-300 leading-relaxed text-base md:text-lg">
+          <div className="space-y-12 leading-relaxed text-base">
+            
             <div>
-              <h1 className = "text-2xl font-semibold line-reveal">Bio</h1>
-              <p className="fade-reveal">
-                20-year-old born in Cebu, Philippines. A second year student at the University of San Carlos. I develop full stack web-based projects.
-                <span className = "font-semibold">Based in Cebu, Philippines</span>
+              <div className="overflow-hidden mb-2">
+                <h1 className="text-sm font-semibold uppercase text-zinc-500 line-reveal">Bio</h1>
+              </div>
+              <p className="fade-reveal text-lg text-white font-light">
+                20-year-old student at the University of San Carlos. I develop full-stack web projects with a focus on modern architecture.
               </p>
             </div>
 
             <div>
-              <h1 className = "text-2xl font-semibold line-reveal">Skills</h1>
-              <p className="fade-reveal">
-                I work across both frontend and backend, building modern web applications using Next.js, React, Tailwind CSS, Node.js, Express, and MySQL.
-                I’m currently exploring <span className="font-semibold">Machine Learning</span>, with a growing interest in computer vision and data analysis.
+              <div className="overflow-hidden mb-2">
+                <h1 className="text-sm font-semibold uppercase text-zinc-500 line-reveal">Skills</h1>
+              </div>
+              <p className="fade-reveal text-lg">
+                I work across the stack using <span className="text-white">Next.js, React, Tailwind CSS, Node.js, and MySQL</span>. 
+                Currently exploring <span className="text-white font-semibold">Machine Learning</span>, with specific interests in computer vision and data analysis.
               </p>
             </div>
 
-  
             <div>
-              <h1 className = "text-2xl font-semibold line-reveal">Connect</h1>
-              <p className="fade-reveal">
-                For inquiries, email me at <span className = "hover:text-foreground hover:cursor-pointer">gementizasgg08@gmail.com</span>
+              <div className="overflow-hidden mb-2">
+                <h1 className="text-sm font-semibold uppercase text-zinc-500 line-reveal">Connect</h1>
+              </div>
+              <p className="fade-reveal mb-6 text-lg">
+                For inquiries, reach out via <span className="text-white border-b border-zinc-700 hover:border-white transition-colors cursor-pointer">gementizasgg08@gmail.com</span>
               </p>
+              
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                {["Facebook", "Instagram", "Github", "LinkedIn"].map((platform) => (
+                  <Link 
+                    key={platform}
+                    href={platform === "Github" ? "https://www.github.com/saiimonn" : "#"} 
+                    className="fade-reveal text-sm hover:text-white transition-colors"
+                  >
+                    {platform}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-  
-
-          <div className="mt-8 overflow-hidden flex w-full space-x-4">
-            <Link href = "/fb" className = "hover:underline fade-reveal">
-              <p>Facebook</p>
-            </Link>
             
-            <Link href = "/ig" className = "hover:underline fade-reveal">
-              <p>Instagram</p>
-            </Link>
-            
-            <Link href = "/git" className = "hover:underline fade-reveal">
-              <p>Github</p>
-            </Link>
-            
-            <Link href = "/linkedin" className = "hover:underline fade-reveal">
-              <p>LinkedIn</p>
-            </Link>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
