@@ -1,114 +1,123 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
+import Link from "next/link";
 import { projects } from "../projects";
 
 const ProjectList = () => {
   const container = useRef(null);
-  const imageRef = useRef(null);
-  const descRef = useRef(null);
-  const [activeImage, setActiveImage] = useState(projects[0].img);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
     
-    const xTo = gsap.quickTo(imageRef.current, "x", { duration: 0.4, ease: "power3" });
-    const yTo = gsap.quickTo(imageRef.current, "y", { duration: 0.4, ease: "power3" });
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      xTo(e.clientX - 150);
-      yTo(e.clientY - 100);
-    };
-    
-    window.addEventListener("mousemove", handleMouseMove);
-    
     const items = gsap.utils.toArray(".project-row");
     items.forEach((item: any) => {
       gsap.fromTo(item,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
+          duration: 1,
           scrollTrigger: {
             trigger: item,
             start: "top 90%",
-            end: "top 70%",
-            scrub: 1,
+            toggleActions: "play none none reverse"
           }
         }
       );
     });
-    
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, { scope: container });
-  
-  const onEnter = (img: string) => {
-    setActiveImage(img);
-    gsap.to(imageRef.current, { scale: 1, opacity: 1, duration: 0.3 });
-    gsap.fromTo(descRef.current, 
-      { y: 20, opacity: 0 }, 
-      { y: 0, opacity: 1, duration: 0.5, ease: "power3.out", delay: 0.1 }
-    );
+
+  const onEnter = (e: React.MouseEvent) => {
+    const row = e.currentTarget;
+    const imgContainer = row.querySelector(".img-reveal");
+    const desc = row.querySelector(".project-desc");
+
+    gsap.to(imgContainer, {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      duration: 0.5,
+      ease: "power3.out",
+      overwrite: true
+    });
+
+    gsap.to(desc, {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    });
   };
-  
-  const onLeave = () => {
-      gsap.to(imageRef.current, { 
-        scale: 0, 
-        opacity: 0, 
-        duration: 0.3, 
-        ease: "power2.in" 
-      });
-  
-      gsap.to(descRef.current, { 
-        y: -20, 
-        opacity: 0, 
-        duration: 0.3, 
-        ease: "power2.in" 
-      });
-    };
+
+  const onLeave = (e: React.MouseEvent) => {
+    const row = e.currentTarget;
+    const imgContainer = row.querySelector(".img-reveal");
+    const desc = row.querySelector(".project-desc");
+
+    gsap.to(imgContainer, {
+      opacity: 0,
+      x: 20,
+      scale: 0.95,
+      duration: 0.4,
+      ease: "power2.in"
+    });
+
+    gsap.to(desc, {
+      opacity: 0,
+      y: 10,
+      duration: 0.3
+    });
+  };
 
   return (
-    <div ref={container} className = "relative w-full p-12 flex flex-col">
-      <div ref={imageRef} className="pointer-events-none fixed top-0 left-0 w-75 h-50 z-50 overflow-hidden rounded-lg opacity-0 scale-0 origin-center">
-        
-        <Image
-          src={activeImage}
-          alt={`${activeImage}`}
-          fill
-          sizes="300px"
-          priority
-          className = "object-cover"
-        />
+    <div ref={container} className="w-full text-white p-8 flex flex-col items-center">
+      
+      <div className = "py-12">
+        <h1 className = "font-light text-blood text-9xl uppercase">Selected Works</h1>
       </div>
       
       {projects.map((item, idx) => (
         <div
           key={idx}
-          onMouseEnter={() => onEnter(item.img)}
+          onMouseEnter={onEnter}
           onMouseLeave={onLeave}
-          className = "project-row flex flex-row items-center space-x-4 p-8 border-b border-[#363636] text-foreground group cursor-pointer transition-colors"
+          className="project-row relative w-full border-t border-white/10 py-16 flex flex-col md:flex-row items-center justify-between group cursor-pointer"
         >
-          <p className = "text-xl tracking-wide opacity-50 group-hover:opacity-100 transition-opacity">
-            [{item.number}]
-          </p>
-          <div className = "flex flex-col space-y-4">
-            <h1 className = "text-7xl tracking-tighter group-hover:translate-x-8 transition-transform duration-500">
-              {item.name}
-            </h1>
-            <p ref={descRef} className="opacity-0">
-              {item.desc}
-            </p>
+          <div className="flex items-start space-x-8 z-10">
+            <span className="text-2xl font-light opacity-60 mt-2">[{item.number}]</span>
+            <div className="flex flex-col">
+              <h1 className="text-6xl md:text-8xl font-medium tracking-tight">
+                {item.name}
+              </h1>
+              <p className="project-desc opacity-0 translate-y-4 text-gray-400 mt-4 max-w-xl text-lg leading-relaxed">
+                {item.shortDesc}
+              </p>
+            </div>
+          </div>
+
+          <div className="img-reveal opacity-0 translate-x-12 scale-90 pointer-events-none mt-8 md:mt-0 md:absolute md:right-0 w-full md:w-[400px] aspect-video rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/20">
+            <Image
+              src={item.img[0]}
+              alt={item.name}
+              fill
+              className="object-cover"
+              sizes="400px"
+            />
           </div>
         </div>
       ))}
-      
-      <div className = "view-all-btn self-center mt-12 border border-[#363636] bg-white text-[#121212] rounded-full px-8 py-4 font-medium cursor-pointer hover:bg-gray-200 transition-colors">
+
+      <Link 
+        href="/projects" 
+        className="mt-16 bg-white text-black px-10 py-4 rounded-full font-medium hover:scale-105 transition-transform"
+      >
         View all projects
-      </div>
+      </Link>
     </div>
   );
 };

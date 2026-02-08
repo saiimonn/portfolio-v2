@@ -19,11 +19,11 @@ export default function ProjectPage() {
             {projects.map((item, idx) => (
               <ProjectCard
                 key={idx}
-                firstImageSrc={item.img}
-                secondImageSrc={item.img}
+                images={item.img}
                 number={item.number}
                 title={item.name}
-                description={item.desc}
+                description={item.longDesc}
+                stack={item.stack}
               />
             ))}
           </div>
