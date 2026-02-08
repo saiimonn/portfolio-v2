@@ -79,10 +79,10 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* --- MAIN CONTENT (Covers Hero) --- */}
+      {/* --- MAIN CONTENT --- */}
       <main className="relative z-40 bg-[#121212] shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
         
-        {/* About Me Section */}
+        {/* About Me */}
         <section ref={aboutContainer} className="about-content flex w-full h-auto py-32 px-8 text-foreground border-b border-foreground/5">
           <div className="flex items-center justify-start">
             <h2 className="text-8xl font-medium text-blood uppercase tracking-tighter whitespace-nowrap" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
@@ -106,7 +106,7 @@ const LandingPage = () => {
           <TechCarousel />
         </div>
         
-        {/* Project List Section */}
+        {/* Project List */}
         <section className="bg-[#121212]">
           <ProjectList />
         </section>
