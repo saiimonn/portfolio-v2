@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="flex space-x-4">
             
            
-              <Link href="/facebook">
+              <Link href="https://www.facebook.com/simongabriel.gementiza/">
                 <div className="p-4 rounded-full border border-white/20 hover:bg-white transition-all duration-300 group">
                   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="size-4 fill-white group-hover:fill-black transition-colors duration-300">
                     <title>Facebook</title>
@@ -28,7 +28,7 @@ const Footer = () => {
 
             
             
-              <Link href="/IG">
+              <Link href="https://www.instagram.com/_saiimonn/">
                 <div className="p-4 border border-white/20 rounded-full hover:bg-white transition-all duration-300 group">
                   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="size-4 fill-white group-hover:fill-black transition-colors duration-300">
                     <title>Instagram</title>
@@ -39,7 +39,7 @@ const Footer = () => {
 
             
             
-              <Link href="/github">
+              <Link href="https://www.github.com/saiimonn">
                 <div className="p-4 border border-white/20 rounded-full hover:bg-white transition-all duration-300 group">
                   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="size-4 fill-white group-hover:fill-black transition-colors duration-300">
                     <title>GitHub</title>
@@ -50,7 +50,7 @@ const Footer = () => {
 
             
             
-              <Link href="/linkedin">
+              <Link href="https://www.linkedin.com/in/simon-gabriel-gementiza-9abb59279/">
                 <div className="p-4 border border-white/20 rounded-full hover:bg-white transition-all duration-300 group">
                   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="size-4 fill-white group-hover:fill-black transition-colors duration-300">
                     <title>LinkedIn</title>
