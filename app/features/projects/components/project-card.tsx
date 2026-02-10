@@ -8,8 +8,8 @@ interface ProjectCardProps {
   title: string;
   description: string;
   stack: string[];
-  repoLink: string;
-  siteLink: string;
+  repoLink?: string;
+  siteLink?: string;
 }
 
 export default function ProjectCard({
