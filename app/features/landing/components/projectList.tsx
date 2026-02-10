@@ -1,5 +1,4 @@
 "use client";
-
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,6 +9,7 @@ import { projects } from "../projects";
 
 const ProjectList = () => {
   const container = useRef<HTMLDivElement | null>(null);
+  const selectedWorks = projects.slice(0, 5);
 
   useGSAP(
     () => {
@@ -81,7 +81,7 @@ const ProjectList = () => {
       </div>
 
       <div className="w-full flex flex-col">
-        {projects.map((item, idx) => (
+        {selectedWorks.map((item, idx) => (
           <div
             key={idx}
             className="project-row relative w-full border-t border-white/10 py-10 sm:py-12 md:py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0 cursor-pointer group"
@@ -103,9 +103,7 @@ const ProjectList = () => {
             </div>
 
             <div className="img-reveal 
-              /* Mobile Styles */
               relative w-full aspect-16/10 mt-6 
-              /* Desktop Styles */
               md:absolute md:right-0 md:mt-0 md:w-112.5 md:aspect-video md:opacity-0 md:translate-x-12 md:scale-90 
               pointer-events-none rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/20 transition-all"
             >

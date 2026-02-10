@@ -1,5 +1,4 @@
 "use client";
-
 import { useRef } from "react";
 import Nav from "@/app/components/navbar";
 import { projects } from "../landing/projects";
@@ -33,7 +32,7 @@ export default function ProjectPage() {
   );
 
   return (
-    <div ref={container} className="bg-black min-h-screen">
+    <div ref={container} className="bg-[#121212] min-h-screen">
       <div className="nav-wrapper fixed left-1/2 -translate-x-1/2 top-6 z-50">
         <Nav />
       </div>

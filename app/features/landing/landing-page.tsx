@@ -98,7 +98,7 @@ const LandingPage = () => {
             </h2>
           </div>
           <div className="flex flex-1 flex-col md:flex-row items-center justify-center px-0 md:px-12 gap-10 md:gap-32">
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[32rem] md:h-[32rem] aspect-square bg-gray-900 shrink-0 rounded-sm overflow-hidden">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-lg md:h-128 aspect-square bg-gray-900 shrink-0 rounded-sm overflow-hidden">
               <Image
                 src="/images/me.jpg"
                 alt="Sai"
@@ -110,9 +110,13 @@ const LandingPage = () => {
               <h3 className="text-4xl sm:text-5xl md:text-7xl font-semibold text-blood mb-6 md:mb-8">
                 Hello I&apos;m Sai
               </h3>
-              <p className="text-base sm:text-lg leading-relaxed opacity-80">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+              <p className="text-base sm:text-lg leading-relaxed opacity-80 text-justify">
+                I&apos;m a computer science student who designs and develops full-stack web
+                applications, mobile apps, and analyze data.
+                <br /><br />
+                I work effectively in collaborative environments, adapt quickly to new
+                tools and technologies, and learn fast. But more importantly, I build fast
+                and with intention.
               </p>
             </div>
           </div>

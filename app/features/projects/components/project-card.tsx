@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,7 +24,7 @@ export default function ProjectCard({
   return (
     <div className="overflow-hidden text-white w-full">
       <div className="group flex h-full flex-col space-y-4 border-b border-b-gray-300/20 py-8">
-        <div className="relative aspect-square w-full overflow-hidden border border-gray-300/10 bg-[#0a0a0a]">
+        <div className="relative aspect-square w-full overflow-hidden border border-gray-300/10 bg-background">
           <div className="flex justify-center items-center h-full transition-all duration-500 group-hover:scale-110 group-hover:blur-sm">
             <h1 className="text-5xl sm:text-6xl md:text-8xl font-thin opacity-20">
               [{number}]
