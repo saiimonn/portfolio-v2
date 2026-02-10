@@ -15,7 +15,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ images, number, title, description, stack, repoLink, siteLink }: ProjectCardProps) {
   return (
-    <div className="overflow-hidden text-white w-full max-w-2xl">
+    <div className="overflow-hidden text-white w-full">
       <div className="group flex h-full flex-col space-y-4 border-b border-b-gray-300/20 py-8">
         
         <div className="relative aspect-square w-full overflow-hidden border border-gray-300/10 bg-[#0a0a0a]">
@@ -50,7 +50,7 @@ export default function ProjectCard({ images, number, title, description, stack,
             <h3 className="text-3xl font-bold tracking-tighter uppercase">{title}</h3>
           </div>
           
-          <p className="text-lg text-gray-400 leading-relaxed transition-all duration-500">
+          <p className="text-lg text-gray-400 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
             {description}
           </p>
           

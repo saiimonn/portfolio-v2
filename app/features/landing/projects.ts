@@ -11,4 +11,14 @@ export const projects = [
     repoLink: "https://www.github.com/saiimonn/ml-hub",
     siteLink: "https://mlearning-hub.vercel.app/",
   },
+  
+  {
+    number: "02",
+    name: "Val Residences",
+    img: ["/images/projects/val-residences/AboutUs1.png", "/images/projects/val-residences/AboutUs2.png", "/images/projects/val-residences/Dashboard2.png", "/images/projects/val-residences/Listings.png"],
+    shortDesc: "A full-stack apartment management system for my classmates' family business.",
+    longDesc: "A comprehensive multi-tenant rental management system that connects landlords, tenants, and prospective tenants and manages the entire rental life cycle.",
+    stack: ["ReactJS", "Tailwindcss", "InertiaJS", "Laravel", "MySQL"],
+    repoLink: "https://github.com/lucerocris/IM2_val_residences",
+  }
 ]

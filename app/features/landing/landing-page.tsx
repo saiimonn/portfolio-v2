@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import TechCarousel from "@/app/features/landing/components/techCarousel";
 import ProjectList from "@/app/features/landing/components/projectList";
 import gsap from "gsap";
