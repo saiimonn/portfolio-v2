@@ -100,7 +100,7 @@ const LandingPage = () => {
           <div className="flex flex-1 flex-col md:flex-row items-center justify-center px-0 md:px-12 gap-10 md:gap-32">
             <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-lg md:h-128 aspect-square bg-gray-900 shrink-0 rounded-sm overflow-hidden">
               <Image
-                src="/images/me.jpg"
+                src="/images/aq.jpg"
                 alt="Sai"
                 fill
                 className="object-cover opacity-80"
