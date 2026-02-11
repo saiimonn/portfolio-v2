@@ -61,7 +61,7 @@ export default function ProjectCard({
             </h3>
           </div>
 
-          <p className="text-base sm:text-lg text-gray-400 leading-relaxed line-clamp-3 md:line-clamp-2 md:group-hover:line-clamp-none transition-all duration-500">
+          <p className="text-base sm:text-lg text-gray-400 leading-relaxed md:line-clamp-2 md:group-hover:line-clamp-none transition-all duration-500 text-justify">
             {description}
           </p>
 
