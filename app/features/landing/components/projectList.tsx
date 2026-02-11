@@ -84,7 +84,7 @@ const ProjectList = () => {
         {selectedWorks.map((item, idx) => (
           <div
             key={idx}
-            className="project-row relative w-full border-t border-white/10 py-10 sm:py-12 md:py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0 cursor-pointer group"
+            className="project-row relative w-full border-t border-white/10 py-10 sm:py-12 md:py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0 group"
           >
             <div className="flex items-start space-x-4 sm:space-x-6 md:space-x-8 z-10 w-full md:w-auto">
               <span className="text-lg sm:text-xl md:text-2xl font-light opacity-60 mt-2">

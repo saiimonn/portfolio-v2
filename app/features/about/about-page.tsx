@@ -91,10 +91,12 @@ export default function AboutPage() {
                   Next.js, React, Tailwind CSS, Node.js, and MySQL
                 </span>
                 . Currently exploring{" "}
-                <span className="text-white font-semibold">
-                  Machine Learning
+                <span className="text-blood font-semibold">
+                  Machine Learning{" "}
                 </span>
-                , with specific interests in computer vision and data analysis.
+                and{" "}
+                <span className = "text-blood">Mobile Development</span>
+                , with specific interests in computer vision, data analysis, and UI design.
               </p>
             </div>
 

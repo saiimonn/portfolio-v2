@@ -108,11 +108,11 @@ const LandingPage = () => {
             </div>
             <div className="max-w-xl text-center md:text-left">
               <h3 className="text-4xl sm:text-5xl md:text-7xl font-semibold text-blood mb-6 md:mb-8">
-                Hello I&apos;m Sai
+                Hello, I&apos;m Sai
               </h3>
               <p className="text-base sm:text-lg leading-relaxed opacity-80 text-justify">
                 I&apos;m a computer science student who designs and develops full-stack web
-                applications, mobile apps, and analyze data.
+                applications as well as analyze data.
                 <br /><br />
                 I work effectively in collaborative environments, adapt quickly to new
                 tools and technologies, and learn fast. But more importantly, I build fast
