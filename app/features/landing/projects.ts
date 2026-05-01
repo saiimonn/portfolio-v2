@@ -20,5 +20,15 @@ export const projects = [
     longDesc: "A comprehensive multi-tenant rental management system that connects landlords, tenants, and prospective tenants and manages the entire rental life cycle.",
     stack: ["ReactJS", "Tailwindcss", "InertiaJS", "Laravel", "MySQL"],
     repoLink: "https://github.com/lucerocris/IM2_val_residences",
+  },
+
+  {
+    number: "03",
+    name: "Tipsy Trails",
+    img: ["/images/projects/tipsy-trails/brands_carousel.png", "/images/projects/tipsy-trails/footer.png", "/images/projects/tipsy-trails/our_story.png", "/images/projects/tipsy-trails/signature_cocktails.png"],
+    shortDesc: "A frontend-focused CMS project for showcasing",
+    longDesc: "A simple static web application for the Tipsy Trails Mobile Bar to showcase their menu, story, etc.",
+    stack: ["NextJS", "Tailwindcss", "Supabase", "PayloadCMS"],
+    repoLink: "https://github.com/lucerocris/tipsytrails"
   }
 ]
