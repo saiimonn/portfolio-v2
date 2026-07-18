@@ -43,9 +43,12 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <div className="preloader-container fixed inset-0 z-100 flex items-end p-12 bg-[#0a0a0a] text-foreground">
       <div className="overflow-hidden">
-        <h1 className="count-text text-[15vw] font-bold leading-none select-none">
+        <div
+          className="count-text text-[15vw] font-bold leading-none select-none"
+          aria-hidden="true"
+        >
           {count}
-        </h1>
+        </div>
       </div>
     </div>
   );

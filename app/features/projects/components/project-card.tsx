@@ -26,9 +26,12 @@ export default function ProjectCard({
       <div className="group flex h-full flex-col space-y-4 border-b border-b-gray-300/20 py-8">
         <div className="relative aspect-square w-full overflow-hidden border border-gray-300/10 bg-background">
           <div className="flex justify-center items-center h-full transition-all duration-500 group-hover:scale-110 group-hover:blur-sm">
-            <h1 className="text-5xl sm:text-6xl md:text-8xl font-thin opacity-20">
+            <span
+              className="text-5xl sm:text-6xl md:text-8xl font-thin opacity-20"
+              aria-hidden="true"
+            >
               [{number}]
-            </h1>
+            </span>
           </div>
 
           <div className="pointer-events-none absolute inset-0 z-10 opacity-100 md:opacity-0 transition-all duration-500 ease-out md:group-hover:opacity-100">
@@ -56,9 +59,9 @@ export default function ProjectCard({
 
         <div className="space-y-4">
           <div className="flex items-end justify-between">
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tighter uppercase">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter uppercase">
               {title}
-            </h3>
+            </h2>
           </div>
 
           <p className="text-base sm:text-lg text-gray-400 leading-relaxed md:line-clamp-2 md:group-hover:line-clamp-none transition-all duration-500 text-justify">

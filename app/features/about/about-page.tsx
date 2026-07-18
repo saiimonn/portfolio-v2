@@ -67,11 +67,12 @@ export default function AboutPage() {
       <section className="min-h-screen text-zinc-300 flex items-center py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-6 sm:px-8">
           <div className="space-y-8 sm:space-y-10 md:space-y-12 leading-relaxed text-sm sm:text-base">
+            <h1 className="sr-only">About Simon Gabriel Gementiza</h1>
             <div>
               <div className="overflow-hidden mb-2">
-                <h1 className="text-sm font-semibold uppercase text-zinc-500 line-reveal">
+                <h2 className="text-sm font-semibold uppercase text-zinc-500 line-reveal">
                   Bio
-                </h1>
+                </h2>
               </div>
               <p className="fade-reveal text-base sm:text-lg text-white font-light">
                 20-year-old student at the University of San Carlos. I develop
@@ -81,9 +82,9 @@ export default function AboutPage() {
 
             <div>
               <div className="overflow-hidden mb-2">
-                <h1 className="text-sm font-semibold uppercase text-zinc-500 line-reveal">
+                <h2 className="text-sm font-semibold uppercase text-zinc-500 line-reveal">
                   Skills
-                </h1>
+                </h2>
               </div>
               <p className="fade-reveal text-base sm:text-lg">
                 I work across the stack using{" "}
@@ -102,9 +103,9 @@ export default function AboutPage() {
 
             <div>
               <div className="overflow-hidden mb-2">
-                <h1 className="text-sm font-semibold uppercase text-zinc-500 line-reveal">
+                <h2 className="text-sm font-semibold uppercase text-zinc-500 line-reveal">
                   Connect
-                </h1>
+                </h2>
               </div>
               <p className="fade-reveal mb-6 text-base sm:text-lg">
                 For inquiries, reach out via

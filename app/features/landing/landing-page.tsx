@@ -63,22 +63,22 @@ const LandingPage = () => {
                 </h1>
               </div>
               <div className="overflow-hidden">
-                <h3 className="text-up text-base sm:text-lg md:text-4xl opacity-70 translate-y-[110%]">
+                <p className="text-up text-base sm:text-lg md:text-4xl opacity-70 translate-y-[110%]">
                   Web Development • Machine Learning
-                </h3>
+                </p>
               </div>
             </div>
 
             <div className="text-left md:text-right text-foreground">
               <div className="overflow-hidden">
-                <h2 className="text-up text-2xl sm:text-3xl md:text-6xl font-bold translate-y-[110%]">
+                <p className="text-up text-2xl sm:text-3xl md:text-6xl font-bold translate-y-[110%]">
                   Full-Stack Developer
-                </h2>
+                </p>
               </div>
               <div className="overflow-hidden">
-                <h2 className="text-up text-base sm:text-xl md:text-4xl opacity-70 translate-y-[110%]">
+                <p className="text-up text-base sm:text-xl md:text-4xl opacity-70 translate-y-[110%]">
                   Based in Cebu, Philippines
-                </h2>
+                </p>
               </div>
             </div>
           </div>

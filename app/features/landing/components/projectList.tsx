@@ -75,9 +75,9 @@ const ProjectList = () => {
       className="w-full text-white px-6 sm:px-8 md:px-12 py-8 flex flex-col items-center"
     >
       <div className="py-10 md:py-12">
-        <h1 className="font-light text-5xl sm:text-7xl md:text-9xl uppercase text-center md:text-left text-blood">
+        <h2 className="font-light text-5xl sm:text-7xl md:text-9xl uppercase text-center md:text-left text-blood">
           Selected Works
-        </h1>
+        </h2>
       </div>
 
       <div className="w-full flex flex-col">
@@ -92,9 +92,9 @@ const ProjectList = () => {
               </span>
 
               <div className="flex flex-col flex-1">
-                <h1 className="text-4xl sm:text-5xl md:text-8xl font-medium tracking-tight">
+                <h3 className="text-4xl sm:text-5xl md:text-8xl font-medium tracking-tight">
                   {item.name}
-                </h1>
+                </h3>
 
                 <p className="project-desc opacity-100 md:opacity-0 md:translate-y-4 text-gray-400 mt-3 sm:mt-4 max-w-xl text-base sm:text-lg leading-relaxed transition-opacity duration-300">
                   {item.shortDesc}

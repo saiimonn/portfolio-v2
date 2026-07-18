@@ -8,7 +8,7 @@ const Footer = () => {
           <h4 className="text-sm text-gray-500 uppercase tracking-widest mb-4">
             Get in touch
           </h4>
-          <Link href="malto:gementizasgg08@gmail.com">
+          <Link href="mailto:gementizasgg08@gmail.com">
             <p className="text-2xl md:text-4xl text-foreground font-medium hover:text-blood transition-colors underline decoration-1 underline-offset-8">
               gementizasgg08@gmail.com
             </p>

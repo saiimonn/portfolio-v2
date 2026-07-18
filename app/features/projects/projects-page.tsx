@@ -38,6 +38,7 @@ export default function ProjectPage() {
       </div>
 
       <div className="relative w-full font-sans pt-24 sm:pt-28 md:pt-32 px-4 sm:px-6 md:px-12 pb-16 sm:pb-20 md:pb-24">
+        <h1 className="sr-only">Projects by Simon Gabriel Gementiza</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
           {projects.map((item, idx) => (
             <div key={idx} className="project-card-wrapper">
