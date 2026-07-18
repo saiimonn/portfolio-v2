@@ -5,9 +5,9 @@ const Footer = () => {
     <footer className="bg-black border-t border-white/10 pt-16 md:pt-24 pb-10 md:pb-12 px-6 sm:px-8 md:px-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
         <div>
-          <h4 className="text-sm text-gray-500 uppercase tracking-widest mb-4">
+          <h2 className="text-sm text-gray-500 uppercase tracking-widest mb-4">
             Get in touch
-          </h4>
+          </h2>
           <Link href="mailto:gementizasgg08@gmail.com">
             <p className="text-2xl md:text-4xl text-foreground font-medium hover:text-blood transition-colors underline decoration-1 underline-offset-8">
               gementizasgg08@gmail.com
@@ -15,9 +15,9 @@ const Footer = () => {
           </Link>
         </div>
         <div className="flex flex-col items-start md:items-end">
-          <h4 className="text-sm text-gray-500 uppercase tracking-widest mb-4">
+          <h2 className="text-sm text-gray-500 uppercase tracking-widest mb-4">
             Social
-          </h4>
+          </h2>
           <div className="flex space-x-4">
             <Link href="https://www.facebook.com/simongabriel.gementiza/">
               <div className="p-4 rounded-full border border-white/20 hover:bg-white transition-all duration-300 group">
