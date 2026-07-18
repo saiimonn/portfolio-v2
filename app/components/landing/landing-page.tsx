@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import TechCarousel from "@/app/features/landing/components/techCarousel";
-import ProjectList from "@/app/features/landing/components/projectList";
+import TechCarousel from "./tech-carousel";
+import ProjectList from "./project-list";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import Footer from "./components/footer";
+import Footer from "./footer";
 
 const LandingPage = () => {
   const mainRef = useRef(null);

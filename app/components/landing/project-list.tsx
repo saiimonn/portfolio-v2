@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import Link from "next/link";
-import { projects } from "../projects";
+import { projects } from "@/app/data/projects";
 
 const ProjectList = () => {
   const container = useRef<HTMLDivElement | null>(null);

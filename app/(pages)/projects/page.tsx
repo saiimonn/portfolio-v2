@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ProjectPage from "@/app/features/projects/projects-page";
+import ProjectPage from "./components/projects-content";
 
 export const metadata: Metadata = {
   title: "Projects",

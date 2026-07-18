@@ -1,8 +1,8 @@
 "use client";
 import { useRef } from "react";
 import Nav from "@/app/components/navbar";
-import { projects } from "../landing/projects";
-import ProjectCard from "./components/project-card";
+import { projects } from "@/app/data/projects";
+import ProjectCard from "./project-card";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
