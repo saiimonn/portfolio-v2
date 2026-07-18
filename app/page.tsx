@@ -4,7 +4,7 @@ import { useState, useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import Preloader from "./components/preloader"
-import Landing from "./(pages)/landing/page";
+import Landing from "./components/landing/landing-page";
 import Nav from "./components/navbar";
 
 export default function Home() {
