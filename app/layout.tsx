@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local"
 import "./globals.css";
 import AppProvider from "./provider";
@@ -48,6 +48,10 @@ export const metadata: Metadata = {
     },
   },
   // verification: { google: "<token from Search Console>" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#121212",
 };
 
 const personJsonLd = {
