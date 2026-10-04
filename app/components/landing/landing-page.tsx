@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import TechCarousel from "./tech-carousel";
 import ProjectList from "./project-list";
 import gsap from "gsap";
@@ -9,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import Footer from "./footer";
 import LocalTime from "../local-time";
+import AsciiSpider from "../ascii-spider";
 
 const LandingPage = () => {
   const mainRef = useRef(null);
@@ -82,13 +82,8 @@ const LandingPage = () => {
             </h2>
           </div>
           <div className="flex flex-1 flex-col md:flex-row items-center justify-center px-0 md:px-12 gap-10 md:gap-32">
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-lg md:h-128 aspect-square bg-gray-900 shrink-0 rounded-sm overflow-hidden">
-              <Image
-                src="/images/aq.jpg"
-                alt="Sai"
-                fill
-                className="object-cover opacity-80"
-              />
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-lg md:h-128 aspect-square shrink-0 rounded-sm overflow-hidden grid place-items-center">
+              <AsciiSpider cols={50} rows={30} />
             </div>
             <div className="max-w-xl text-center md:text-left">
               <h3 className="text-4xl sm:text-5xl md:text-7xl font-semibold text-blood mb-6 md:mb-8">
