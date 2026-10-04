@@ -37,7 +37,7 @@ const LandingPage = () => {
   return (
     <div ref={mainRef} className="relative w-full font-sans bg-black">
       {/* --- STICKY HERO SECTION --- */}
-      <section className="hero-section sticky top-0 h-screen w-full overflow-hidden z-0 bg-black border-b border-white/5">
+      <section className="hero-section sticky top-0 h-svh w-full overflow-hidden z-0 bg-black border-b border-white/5">
         <div className="grain-overlay opacity-[0.06] z-20 pointer-events-none" />
         <div className="absolute inset-0 bg-black/30 pointer-events-none z-10" />
 
