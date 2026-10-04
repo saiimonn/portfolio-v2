@@ -19,6 +19,42 @@ body {
   color: var(--textWhite);
 }
 
+/* hero background: drifting dark blobs over red, replaces the old bg2.mp4 loop */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #f0230d;
+}
+
+.hero-gradient span {
+  position: absolute;
+  width: 62vmax;
+  height: 42vmax;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(70 18 14 / 0.9), rgb(130 24 16 / 0.45) 50%, transparent);
+  will-change: transform;
+  animation: drift 10s ease-in-out infinite alternate;
+}
+
+.hero-gradient span:nth-child(1) { top: -10%; left: -15%; }
+.hero-gradient span:nth-child(2) { top: -25%; right: -20%; animation-duration: 13s; animation-direction: alternate-reverse; }
+.hero-gradient span:nth-child(3) { bottom: -25%; left: 25%; width: 45vmax; opacity: 0.5; animation-duration: 16s; }
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(12vw, 8vh) scale(1.15); }
+  100% { transform: translate(-8vw, 14vh) scale(0.95); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient span,
+  .grain-overlay,
+  .animate-marquee-infinite {
+    animation: none;
+  }
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
