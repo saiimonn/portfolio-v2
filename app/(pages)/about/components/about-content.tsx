@@ -1,9 +1,9 @@
 "use client";
 import { useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Nav from "@/app/components/navbar";
+import AsciiSpider from "@/app/components/ascii-spider";
 import Footer from "@/app/components/landing/footer";
 import { experience } from "@/app/data/experience";
 
@@ -66,14 +66,8 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-12 md:mt-20 grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-12 lg:gap-24">
-          <div className="fade-reveal relative w-full aspect-4/5 rounded-sm overflow-hidden bg-zinc-900">
-            <Image
-              src="/images/aq.jpg"
-              alt="Simon Gabriel Gementiza"
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover"
-            />
+          <div className="fade-reveal relative w-full aspect-4/5 rounded-sm overflow-hidden grid place-items-center">
+            <AsciiSpider cols={48} rows={36} />
           </div>
 
           <div className="flex flex-col gap-12">
