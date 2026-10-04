@@ -4,8 +4,10 @@ import "./globals.css";
 import AppProvider from "./provider";
 
 const generalSans = localFont({
-  src: '../public/fonts/GeneralSans-Regular.woff2',
+  src: '../public/fonts/GeneralSans-Variable.woff2',
+  weight: '200 700',
   display: 'swap',
+  variable: '--font-general',
 })
 
 const SITE_URL = "https://saiimonn.vercel.app";
@@ -98,7 +100,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${generalSans.className} antialiased`}
+        className={`${generalSans.variable} font-sans antialiased`}
       >
         <AppProvider>
           {children}
