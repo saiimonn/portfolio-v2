@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import Footer from "./footer";
+import LocalTime from "../local-time";
 
 const LandingPage = () => {
   const mainRef = useRef(null);
@@ -40,53 +41,36 @@ const LandingPage = () => {
         <div className="grain-overlay opacity-[0.06] z-20 pointer-events-none" />
         <div className="absolute inset-0 bg-black/30 pointer-events-none z-10" />
 
-        <div className="absolute inset-0 -z-10">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover"
-          >
-            <source src="/video/bg2.mp4" type="video/mp4" />
-          </video>
+        <div className="hero-gradient -z-10" aria-hidden="true">
+          <span />
+          <span />
+          <span />
         </div>
 
-        <div className="relative flex flex-col justify-between h-full w-full p-6 sm:p-8 md:p-16 z-30">
-          <div className="flex items-center w-full h-full" />
-
-          <div className="flex flex-col gap-8 md:flex-row md:justify-between md:items-end w-full">
-            <div className="text-foreground">
-              <div className="overflow-hidden">
-                <h1 className="text-up text-5xl sm:text-6xl md:text-8xl text-[#FFFFF0] font-extrabold tracking-tighter leading-none translate-y-[110%]">
-                  Saiimonn
-                </h1>
-              </div>
-              <div className="overflow-hidden">
-                <p className="text-up text-base sm:text-lg md:text-4xl opacity-70 translate-y-[110%]">
-                  Web Development • Machine Learning
-                </p>
-              </div>
+        <div className="relative flex flex-col justify-between h-full w-full px-6 sm:px-8 md:px-16 pt-28 md:pt-32 pb-6 md:pb-10 z-30 text-foreground">
+          <div className="overflow-hidden">
+            <div className="text-up translate-y-[110%] flex justify-between gap-4 whitespace-nowrap text-[11px] sm:text-xs uppercase tracking-[0.2em] opacity-75">
+              <span>Full-Stack Developer</span>
+              <span className="hidden lg:flex items-center gap-2">
+                <span className="size-2 rounded-full bg-green-400" aria-hidden="true" />
+                Available for work
+              </span>
+              <span>
+                Cebu, PH — <LocalTime /><span className="hidden sm:inline"> GMT+8</span>
+              </span>
             </div>
+          </div>
 
-            <div className="text-left md:text-right text-foreground">
-              <div className="overflow-hidden">
-                <p className="text-up text-2xl sm:text-3xl md:text-6xl font-bold translate-y-[110%]">
-                  Full-Stack Developer
-                </p>
-              </div>
-              <div className="overflow-hidden">
-                <p className="text-up text-base sm:text-xl md:text-4xl opacity-70 translate-y-[110%]">
-                  Based in Cebu, Philippines
-                </p>
-              </div>
-            </div>
+          <div className="overflow-hidden">
+            <h1 className="text-up translate-y-[110%] text-[17.5vw] font-bold uppercase leading-[0.8] whitespace-nowrap tracking-tighter text-[#FFFFF0] -ml-[0.04em]">
+              Saiimonn
+            </h1>
           </div>
         </div>
       </section>
 
       {/* --- MAIN CONTENT --- */}
-      <main className="relative z-40 bg-[#121212] shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
+      <main className="relative z-40 bg-background shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
         {/* About Me */}
         <section
           ref={aboutContainer}
@@ -122,12 +106,12 @@ const LandingPage = () => {
           </div>
         </section>
 
-        <div className="py-24 bg-[#0a0a0a] border-b border-white/5">
+        <div className="py-24 border-b border-white/5">
           <TechCarousel />
         </div>
 
         {/* Project List */}
-        <section className="bg-[#121212]">
+        <section>
           <ProjectList />
         </section>
 

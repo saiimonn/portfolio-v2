@@ -1,9 +1,30 @@
-
-// projects metadata
+// projects metadata, newest first; the first five show on the home page
 export const projects = [
+
   {
     number: "01",
+    name: "Study Hub",
+    slug: "study-hub",
+    role: "Co-built, team of 2",
+    year: "2026",
+    img: [
+      "/images/projects/study-hub/landing.png",
+      "/images/projects/study-hub/battle.png",
+      "/images/projects/study-hub/visualizer.png",
+      "/images/projects/study-hub/graph-theory.png"
+    ],
+    shortDesc: "Every CS course this semester turned into graded drills, a C tracer, and live quiz battles.",
+    longDesc: "A study platform for USC computer science courses, used by classmates at studyhub.dcism.org. Course material becomes auto-graded practice: a C tracer that draws pointers and data structures as the program runs, a data-structure visualizer, flashcard decks, exam simulators, and a real-time Battle mode where up to 30 classmates answer the same question at once. Works without an account; progress syncs through Supabase once signed in.",
+    stack: ["NextJS", "Tailwindcss", "Supabase", "PostHog"],
+    siteLink: "https://studyhub.dcism.org",
+  },
+
+  {
+    number: "02",
     name: "ML Hub",
+    slug: "ml-hub",
+    role: "Solo — design + build",
+    year: "2026",
     img: [
       "/images/projects/ml-hub/ml-hub-landing.png",
       "/images/projects/ml-hub/ml-hub-analytical.png",
@@ -16,10 +37,13 @@ export const projects = [
     repoLink: "https://www.github.com/saiimonn/ml-hub",
     siteLink: "https://mlearning-hub.vercel.app/",
   },
-  
+
   {
-    number: "02",
+    number: "03",
     name: "Val Residences",
+    slug: "val-residences",
+    role: "Full-stack, team",
+    year: "2025",
     img: [
       "/images/projects/val-residences/AboutUs1.png",
       "/images/projects/val-residences/AboutUs2.png",
@@ -31,35 +55,4 @@ export const projects = [
     stack: ["ReactJS", "Tailwindcss", "InertiaJS", "Laravel", "MySQL"],
     repoLink: "https://github.com/lucerocris/IM2_val_residences",
   },
-
-  {
-    number: "03",
-    name: "Tipsy Trails",
-    img: [
-      "/images/projects/tipsy-trails/brands_carousel.png",
-      "/images/projects/tipsy-trails/footer.png",
-      "/images/projects/tipsy-trails/our_story.png",
-      "/images/projects/tipsy-trails/signature_cocktails.png"
-    ],
-    shortDesc: "Frontend-driven CMS website for a mobile bar brand",
-    longDesc: "Developed a responsive, CMS-powered website for Tipsy Trails Mobile Bar to showcase their menu, brand story, and services. Integrated Payload CMS and Supabase for content management, enabling dynamic updates without redeployment. Focused on clean UI/UX, smooth animations, and scalable component architecture.",
-    stack: ["NextJS", "Tailwindcss", "Supabase", "PayloadCMS"],
-    repoLink: "https://github.com/lucerocris/tipsytrails"
-  },
-
-  {
-    number: "04",
-    name: "Nitpicker",
-    img: [
-      "/images/projects/nitpicker/landing.png",
-      "/images/projects/nitpicker/mock_exam.png",
-      "/images/projects/nitpicker/mock_exam_prep.png",
-      "/images/projects/nitpicker/prev_exams.png"
-    ],
-    shortDesc: "Interactive mock exam platform for PhilNITS preparation.",
-    longDesc: "Helped build an interactive mock exam platform to help students prepare for the PhilNITS certification. Implemented timed exams, question navigation, and preparation flows with a focus on usability and performance. Utilized animations to enhance user engagement and simulate real testing environments.",
-    stack: ["NextJS", "Tailwindcss", "Framer Motion"],
-    repoLink: "https://github.com/noni-was-taken/NitPicker",
-    siteLink: "https://nitpicker.dcism.org"
-  }
-]
+];

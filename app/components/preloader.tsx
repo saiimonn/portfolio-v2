@@ -1,47 +1,45 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   const [count, setCount] = useState(0);
+  const container = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    // 1. Numerical Count Logic
-    const interval = setInterval(() => {
-      setCount((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 10); 
+  useGSAP(
+    () => {
+      const counter = { value: 0 };
 
-    // 2. Exit Animation
-    if (count === 100) {
-      const tl = gsap.timeline({
-        onComplete: onComplete,
-      });
-
-      tl.to(".count-text", {
-        opacity: 0,
-        y: -50,
-        duration: 0.5,
-        delay: 0.3,
-        ease: "power2.in",
-      })
-      .to(".preloader-container", {
-        yPercent: -100, 
-        duration: 1.2,
-        ease: "power4.inOut",
-      });
-    }
-
-    return () => clearInterval(interval);
-  }, [count, onComplete]);
+      gsap
+        .timeline({ onComplete })
+        .to(counter, {
+          value: 100,
+          duration: 1,
+          ease: "power2.inOut",
+          onUpdate: () => setCount(Math.round(counter.value)),
+        })
+        .to(".count-text", {
+          opacity: 0,
+          y: -50,
+          duration: 0.4,
+          delay: 0.1,
+          ease: "power2.in",
+        })
+        .to(container.current, {
+          yPercent: -100,
+          duration: 1,
+          ease: "power4.inOut",
+        });
+    },
+    { scope: container },
+  );
 
   return (
-    <div className="preloader-container fixed inset-0 z-100 flex items-end p-12 bg-[#0a0a0a] text-foreground">
+    <div
+      ref={container}
+      className="fixed inset-0 z-100 flex items-end p-12 bg-[#0a0a0a] text-foreground"
+    >
       <div className="overflow-hidden">
         <div
           className="count-text text-[15vw] font-bold leading-none select-none"

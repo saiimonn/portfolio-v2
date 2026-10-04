@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -9,6 +9,8 @@ import { projects } from "@/app/data/projects";
 
 const ProjectList = () => {
   const container = useRef<HTMLDivElement | null>(null);
+  const preview = useRef<HTMLDivElement | null>(null);
+  const [active, setActive] = useState<number | null>(null);
   const selectedWorks = projects.slice(0, 5);
 
   useGSAP(
@@ -24,6 +26,7 @@ const ProjectList = () => {
             y: 0,
             duration: 1,
             ease: "power3.out",
+            clearProps: "opacity",
             scrollTrigger: {
               trigger: item,
               start: "top 90%",
@@ -32,39 +35,19 @@ const ProjectList = () => {
         );
       });
 
-      const mm = gsap.matchMedia();
-
-      mm.add({
-        isDesktop: "(min-width: 1024px)",
-        isMobile: "(max-width: 1023px)"
-      }, (context) => {
-        const { isDesktop } = context.conditions as any;
-        const rows = gsap.utils.toArray<HTMLElement>(".project-row");
-
-        if (isDesktop) {
-          rows.forEach((row) => {
-            const img = row.querySelector(".img-reveal");
-            const desc = row.querySelector(".project-desc");
-
-            if (!img || !desc) return;
-
-            const onEnter = () => {
-              gsap.to(img, { opacity: 1, x: 0, scale: 1, duration: 0.5, ease: "power3.out", overwrite: true });
-              gsap.to(desc, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", overwrite: true });
-            };
-
-            const onLeave = () => {
-              gsap.to(img, { opacity: 0, x: 20, scale: 0.95, duration: 0.4, ease: "power2.in", overwrite: true });
-              gsap.to(desc, { opacity: 0, y: 10, duration: 0.3, ease: "power2.in", overwrite: true });
-            };
-
-            row.addEventListener("mouseenter", onEnter);
-            row.addEventListener("mouseleave", onLeave);
-          });
-        } else {
-          gsap.set(".img-reveal, .project-desc", { clearProps: "all" });
-        }
-      });
+      // Desktop preview image trails the cursor
+      const el = preview.current;
+      if (!el) return;
+      // offset right of the cursor so the hovered title stays readable
+      gsap.set(el, { xPercent: 12, yPercent: -50 });
+      const xTo = gsap.quickTo(el, "x", { duration: 0.6, ease: "power3" });
+      const yTo = gsap.quickTo(el, "y", { duration: 0.6, ease: "power3" });
+      const move = (e: PointerEvent) => {
+        xTo(e.clientX);
+        yTo(e.clientY);
+      };
+      window.addEventListener("pointermove", move);
+      return () => window.removeEventListener("pointermove", move);
     },
     { scope: container }
   );
@@ -72,51 +55,78 @@ const ProjectList = () => {
   return (
     <div
       ref={container}
-      className="w-full text-white px-6 sm:px-8 md:px-12 py-8 flex flex-col items-center"
+      className="w-full text-white px-6 sm:px-8 md:px-16 py-8 flex flex-col items-center"
     >
-      <div className="py-10 md:py-12">
-        <h2 className="font-light text-5xl sm:text-7xl md:text-9xl uppercase text-center md:text-left text-blood">
+      <div className="w-full flex items-end justify-between py-10 md:py-12">
+        <h2 className="font-light text-5xl sm:text-7xl md:text-9xl uppercase tracking-tighter text-blood">
           Selected Works
         </h2>
+        <span className="text-lg md:text-2xl opacity-50">
+          ({String(selectedWorks.length).padStart(2, "0")})
+        </span>
       </div>
 
-      <div className="w-full flex flex-col">
+      <div className="hidden lg:grid w-full grid-cols-[4rem_1fr_16rem_6rem_18rem] py-4 border-t border-white/10 text-xs uppercase tracking-[0.2em] opacity-40">
+        <span>No.</span>
+        <span>Project</span>
+        <span>Role</span>
+        <span>Year</span>
+        <span className="text-right">Stack</span>
+      </div>
+
+      <ul className="project-list w-full flex flex-col" onMouseLeave={() => setActive(null)}>
         {selectedWorks.map((item, idx) => (
-          <div
-            key={idx}
-            className="project-row relative w-full border-t border-white/10 py-10 sm:py-12 md:py-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0 group"
-          >
-            <div className="flex items-start space-x-4 sm:space-x-6 md:space-x-8 z-10 w-full md:w-auto">
-              <span className="text-lg sm:text-xl md:text-2xl font-light opacity-60 mt-2">
+          <li key={item.slug} className="project-row transition-opacity duration-300">
+            <Link
+              href={`/projects#${item.slug}`}
+              onMouseEnter={() => setActive(idx)}
+              onFocus={() => setActive(idx)}
+              className="w-full border-t border-white/10 py-8 md:py-10 flex flex-col gap-4 lg:grid lg:grid-cols-[4rem_1fr_16rem_6rem_18rem] lg:items-center"
+            >
+              <span className="text-lg md:text-xl font-light opacity-50">
                 [{item.number}]
               </span>
+              <h3 className="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight">
+                {item.name}
+              </h3>
+              <span className="text-base opacity-70">{item.role}</span>
+              <span className="text-base opacity-70">{item.year}</span>
+              <span className="text-base opacity-70 lg:text-right">
+                {item.stack.join(" · ")}
+              </span>
 
-              <div className="flex flex-col flex-1">
-                <h3 className="text-4xl sm:text-5xl md:text-8xl font-medium tracking-tight">
-                  {item.name}
-                </h3>
-
-                <p className="project-desc opacity-100 md:opacity-0 md:translate-y-4 text-gray-400 mt-3 sm:mt-4 max-w-xl text-base sm:text-lg leading-relaxed transition-opacity duration-300">
-                  {item.shortDesc}
-                </p>
+              <div className="relative w-full aspect-16/10 rounded-xl overflow-hidden ring-1 ring-white/20 lg:hidden">
+                <Image
+                  src={item.img[0]}
+                  alt={item.name}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
               </div>
-            </div>
+            </Link>
+          </li>
+        ))}
+      </ul>
 
-            <div className="img-reveal 
-              relative w-full aspect-16/10 mt-6 
-              md:absolute md:right-0 md:mt-0 md:w-112.5 md:aspect-video md:opacity-0 md:translate-x-12 md:scale-90 
-              pointer-events-none rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/20 transition-all"
-            >
-              <Image
-                src={item.img[0]}
-                alt={item.name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 450px"
-                priority={idx < 2}
-              />
-            </div>
-          </div>
+      <div
+        ref={preview}
+        aria-hidden="true"
+        className={`fixed left-0 top-0 z-50 hidden lg:block w-96 aspect-video pointer-events-none rounded-xl overflow-hidden ring-1 ring-white/20 shadow-2xl transition-[opacity,scale] duration-300 ${
+          active === null ? "opacity-0 scale-90" : "opacity-100 scale-100 -rotate-3"
+        }`}
+      >
+        {selectedWorks.map((item, idx) => (
+          <Image
+            key={item.slug}
+            src={item.img[0]}
+            alt=""
+            fill
+            sizes="384px"
+            className={`object-cover transition-opacity duration-300 ${
+              active === idx ? "opacity-100" : "opacity-0"
+            }`}
+          />
         ))}
       </div>
 
@@ -124,7 +134,7 @@ const ProjectList = () => {
         href="/projects"
         className="mt-12 md:mt-16 bg-white text-black px-8 sm:px-10 py-3 sm:py-4 rounded-full font-medium hover:scale-105 transition-transform text-sm sm:text-base"
       >
-        View all projects
+        View all projects →
       </Link>
     </div>
   );

@@ -25,7 +25,7 @@ export default function ProjectCard({
     <div className="overflow-hidden text-white w-full">
       <div className="group flex h-full flex-col space-y-4 border-b border-b-gray-300/20 py-8">
         <div className="relative aspect-square w-full overflow-hidden border border-gray-300/10 bg-background">
-          <div className="flex justify-center items-center h-full transition-all duration-500 group-hover:scale-110 group-hover:blur-sm">
+          <div className="hidden md:flex justify-center items-center h-full transition-all duration-500 group-hover:scale-110 group-hover:blur-sm">
             <span
               className="text-5xl sm:text-6xl md:text-8xl font-thin opacity-20"
               aria-hidden="true"
@@ -83,6 +83,8 @@ export default function ProjectCard({
             {repoLink && (
               <Link
                 href={repoLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border rounded-full py-2 px-4 bg-white text-black hover:bg-white/20 hover:text-white ease-in transition-colors"
               >
                 Repository
@@ -92,6 +94,8 @@ export default function ProjectCard({
             {siteLink && (
               <Link
                 href={siteLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border rounded-full py-2 px-4 bg-white text-black hover:bg-white/20 hover:text-white ease-in transition-colors"
               >
                 Website

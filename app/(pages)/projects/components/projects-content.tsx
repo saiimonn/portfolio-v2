@@ -41,7 +41,7 @@ export default function ProjectPage() {
         <h1 className="sr-only">Projects by Simon Gabriel Gementiza</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
           {projects.map((item, idx) => (
-            <div key={idx} className="project-card-wrapper">
+            <div key={item.slug} id={item.slug} className="project-card-wrapper scroll-mt-24">
               <ProjectCard
                 key={idx}
                 images={item.img}
