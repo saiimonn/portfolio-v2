@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import Preloader from "./components/preloader"
@@ -12,6 +12,20 @@ export default function Home() {
   const container = useRef(null);
   
   gsap.registerPlugin(useGSAP)
+
+  // Preloader runs once per session and never for reduced-motion users
+  useEffect(() => {
+    try {
+      const seen = sessionStorage.getItem("preloaded") === "1";
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (seen || reduced) setIsLoading(false);
+    } catch {}
+  }, []);
+
+  const finishLoading = () => {
+    try { sessionStorage.setItem("preloaded", "1"); } catch {}
+    setIsLoading(false);
+  };
   
   useGSAP(() => {
     if (!isLoading) {
@@ -36,7 +50,7 @@ export default function Home() {
   
   return (
     <div ref={container} className="bg-black">
-      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+      {isLoading && <Preloader onComplete={finishLoading} />}
       
       <div className={`nav-wrapper fixed left-1/2 z-60 ${isLoading ? 'invisible' : 'visible'}`}>
         <Nav />
