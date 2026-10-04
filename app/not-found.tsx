@@ -3,7 +3,7 @@ import Nav from "./components/navbar";
 
 export default function NotFound() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background text-foreground flex flex-col items-center justify-center px-6 text-center">
+    <main className="relative min-h-svh overflow-hidden bg-background text-foreground flex flex-col items-center justify-center px-6 text-center">
       <div className="hero-gradient" aria-hidden="true">
         <span />
         <span />
