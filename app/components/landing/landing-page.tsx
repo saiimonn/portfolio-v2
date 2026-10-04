@@ -51,7 +51,6 @@ const LandingPage = () => {
           <div className="overflow-hidden">
             <div className="text-up translate-y-[110%] flex justify-between gap-4 whitespace-nowrap text-[11px] sm:text-xs uppercase tracking-[0.2em] opacity-75">
               <span>Full-Stack Developer</span>
-              <span className="hidden md:inline">Web Dev • Machine Learning</span>
               <span className="hidden lg:flex items-center gap-2">
                 <span className="size-2 rounded-full bg-green-400" aria-hidden="true" />
                 Available for work
