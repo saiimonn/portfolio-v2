@@ -19,6 +19,11 @@ body {
   color: var(--textWhite);
 }
 
+/* dim sibling rows while one is hovered */
+.project-list:has(.project-row:hover) .project-row:not(:hover) {
+  opacity: 0.55;
+}
+
 /* hero background: drifting dark blobs over red, replaces the old bg2.mp4 loop */
 .hero-gradient {
   position: absolute;
