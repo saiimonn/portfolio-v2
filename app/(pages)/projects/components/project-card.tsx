@@ -3,8 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface ProjectCardProps {
-  images: string[];
-  number: string;
+  image: string;
   title: string;
   description: string;
   stack: string[];
@@ -13,8 +12,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({
-  images,
-  number,
+  image,
   title,
   description,
   stack,
@@ -23,48 +21,25 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div className="overflow-hidden text-white w-full">
-      <div className="group flex h-full flex-col space-y-4 border-b border-b-gray-300/20 py-8">
-        <div className="relative aspect-square w-full overflow-hidden border border-gray-300/10 bg-background">
-          <div className="hidden md:flex justify-center items-center h-full transition-all duration-500 group-hover:scale-110 group-hover:blur-sm">
-            <span
-              className="text-5xl sm:text-6xl md:text-8xl font-thin opacity-20"
-              aria-hidden="true"
-            >
-              [{number}]
-            </span>
-          </div>
-
-          <div className="pointer-events-none absolute inset-0 z-10 opacity-100 md:opacity-0 transition-all duration-500 ease-out md:group-hover:opacity-100">
-            <div className="absolute inset-0 bg-black/60" />
-            <div className="absolute inset-0 flex items-center justify-center p-8">
-              <div className="grid grid-cols-2 gap-4 w-full h-full transform scale-90 transition-transform duration-500 ">
-                {images.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="relative size-full rounded-lg overflow-hidden border border-white/10"
-                  >
-                    <Image
-                      src={item}
-                      alt={`${title} view ${idx}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 50vw, 33vw"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      <div className="flex h-full flex-col md:flex-row md:items-center gap-4 md:gap-12 border-b border-b-gray-300/20 py-8">
+        <div className="relative aspect-16/10 w-full md:w-1/2 shrink-0 overflow-hidden rounded-xl border border-gray-300/10 bg-background">
+          <Image
+            src={image}
+            alt={`${title} landing page`}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 md:flex-1">
           <div className="flex items-end justify-between">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter uppercase">
               {title}
             </h2>
           </div>
 
-          <p className="text-base sm:text-lg text-gray-400 leading-relaxed md:line-clamp-2 md:group-hover:line-clamp-none transition-all duration-500 text-justify">
+          <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
             {description}
           </p>
 
@@ -72,7 +47,7 @@ export default function ProjectCard({
             {stack.map((item, idx) => (
               <span
                 key={idx}
-                className="border border-white/20 rounded-full py-1 px-4 text-xs font-medium uppercase tracking-widest opacity-60 group-hover:opacity-100 transition-opacity"
+                className="border border-white/20 rounded-full py-1 px-4 text-xs font-medium uppercase tracking-widest opacity-60"
               >
                 {item}
               </span>

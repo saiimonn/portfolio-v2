@@ -21,21 +21,15 @@ export const projects = [
 
   {
     number: "02",
-    name: "ML Hub",
-    slug: "ml-hub",
-    role: "Solo — design + build",
+    name: "Nook",
+    slug: "nook",
+    role: "Mobile + web, team",
     year: "2026",
-    img: [
-      "/images/projects/ml-hub/ml-hub-landing.png",
-      "/images/projects/ml-hub/ml-hub-analytical.png",
-      "/images/projects/ml-hub/ml-hub-color-analyzer.png",
-      "/images/projects/ml-hub/ml-hub-edge-detector.png"
-    ],
-    shortDesc: "A unified web platform for testing and showcasing my machine learning models.",
-    longDesc: "A personal web platform where I bring together all of my machine learning models in one place. It lets users interact with and test different ML-powered features through a clean and intuitive interface. Built as both a learning space and a showcase, ML-Hub highlights how machine learning models can be deployed and used in real-world web applications.",
-    stack: ["NextJS", "Tailwindcss", "FastAPI", "OpenCV"],
-    repoLink: "https://www.github.com/saiimonn/ml-hub",
-    siteLink: "https://mlearning-hub.vercel.app/",
+    img: ["/images/projects/nook/landing.png"],
+    shortDesc: "Cebu's cafe guide: a mobile app, an owner portal, and an admin panel on one Supabase backend.",
+    longDesc: "A Flutter app for iOS and Android that helps people in Cebu City find and keep track of local cafes, with a browseable feed, a live map, tag- and location-based search, reviews, custom lists, and Been / Want to Try rankings. Nook for Business is the Next.js portal where owners claim their listing and manage hours, photos, menu, tags, and reviews alongside traffic analytics. Nook Admin is the internal panel for reviewing claims, moderating reviews, and curating cafes, tags, crawls, and achievements.",
+    stack: ["Flutter", "NextJS", "Supabase", "MapLibre", "PostHog"],
+    siteLink: "https://www.nookph.app",
   },
 
   {
