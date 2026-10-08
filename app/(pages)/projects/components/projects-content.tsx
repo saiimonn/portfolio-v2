@@ -39,13 +39,12 @@ export default function ProjectPage() {
 
       <div className="relative w-full font-sans pt-24 sm:pt-28 md:pt-32 px-4 sm:px-6 md:px-12 pb-16 sm:pb-20 md:pb-24">
         <h1 className="sr-only">Projects by Simon Gabriel Gementiza</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
+        <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
           {projects.map((item, idx) => (
             <div key={item.slug} id={item.slug} className="project-card-wrapper scroll-mt-24">
               <ProjectCard
                 key={idx}
-                images={item.img}
-                number={item.number}
+                image={item.img[0]}
                 title={item.name}
                 description={item.longDesc}
                 stack={item.stack}
