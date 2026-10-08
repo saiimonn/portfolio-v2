@@ -1,3 +1,4 @@
+import { SITE_URL } from "./data/site";
 import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
@@ -19,7 +20,7 @@ export default function Image() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", fontSize: 40, opacity: 0.6 }}>saiimonn.vercel.app</div>
+        <div style={{ display: "flex", fontSize: 40, opacity: 0.6 }}>{new URL(SITE_URL).host}</div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontSize: 96, fontWeight: 800, letterSpacing: -2 }}>
             Simon Gabriel Gementiza

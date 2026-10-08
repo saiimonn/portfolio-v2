@@ -4,5 +4,13 @@
     "deploymentEnabled": {
       "main": false
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "saiimonn.vercel.app" }],
+      "destination": "https://saiimonn.surgestudio.tech/:path*",
+      "permanent": true
+    }
+  ]
 }
