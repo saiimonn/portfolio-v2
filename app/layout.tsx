@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local"
 import "./globals.css";
 import AppProvider from "./provider";
+import { OPEN_GRAPH, SITE_URL } from "./data/site";
 
 const generalSans = localFont({
   src: '../public/fonts/GeneralSans-Variable.woff2',
@@ -9,8 +10,6 @@ const generalSans = localFont({
   display: 'swap',
   variable: '--font-general',
 })
-
-const SITE_URL = "https://saiimonn.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -27,10 +26,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    type: "website",
-    locale: "en_PH",
-    url: SITE_URL,
-    siteName: "Simon Gabriel Gementiza",
+    ...OPEN_GRAPH,
+    url: "/",
     title: "Simon Gabriel Gementiza - Web Developer",
     description: "Web developer building full-stack applications with Next.js, React, and Laravel.",
   },

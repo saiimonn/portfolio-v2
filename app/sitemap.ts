@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://saiimonn.vercel.app";
+import { SITE_URL } from "./data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

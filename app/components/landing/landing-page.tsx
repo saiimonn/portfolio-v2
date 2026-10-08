@@ -64,6 +64,7 @@ const LandingPage = () => {
           <div className="overflow-hidden">
             <h1 className="text-up translate-y-[110%] text-[17.5vw] font-bold uppercase leading-[0.8] whitespace-nowrap tracking-tighter text-[#FFFFF0] -ml-[0.04em]">
               Saiimonn
+              <span className="sr-only"> — Simon Gabriel Gementiza, web developer</span>
             </h1>
           </div>
         </div>
