@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Nav from "@/app/components/navbar";
 import { projects } from "@/app/data/projects";
 import ProjectCard from "./project-card";
+import Footer from "@/app/components/landing/footer";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -37,7 +38,7 @@ export default function ProjectPage() {
         <Nav />
       </div>
 
-      <div className="relative w-full font-sans pt-24 sm:pt-28 md:pt-32 px-4 sm:px-6 md:px-12 pb-16 sm:pb-20 md:pb-24">
+      <main className="relative w-full font-sans pt-24 sm:pt-28 md:pt-32 px-4 sm:px-6 md:px-12 pb-16 sm:pb-20 md:pb-24">
         <h1 className="sr-only">Projects by Simon Gabriel Gementiza</h1>
         <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
           {projects.map((item, idx) => (
@@ -54,7 +55,9 @@ export default function ProjectPage() {
             </div>
           ))}
         </div>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }

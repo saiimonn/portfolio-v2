@@ -49,7 +49,7 @@ const LandingPage = () => {
 
         <div className="relative flex flex-col justify-between h-full w-full px-6 sm:px-8 md:px-16 pt-28 md:pt-32 pb-6 md:pb-10 z-30 text-foreground">
           <div className="overflow-hidden">
-            <div className="text-up translate-y-[110%] flex justify-between gap-4 whitespace-nowrap text-[11px] sm:text-xs uppercase tracking-[0.2em] opacity-75">
+            <div className="text-up flex justify-between gap-4 whitespace-nowrap text-[11px] sm:text-xs uppercase tracking-[0.2em] opacity-75">
               <span>Full-Stack Developer</span>
               <span className="hidden lg:flex items-center gap-2">
                 <span className="size-2 rounded-full bg-green-400" aria-hidden="true" />
@@ -62,7 +62,7 @@ const LandingPage = () => {
           </div>
 
           <div className="overflow-hidden">
-            <h1 className="text-up translate-y-[110%] text-[17.5vw] font-bold uppercase leading-[0.8] whitespace-nowrap tracking-tighter text-[#FFFFF0] -ml-[0.04em]">
+            <h1 className="text-up text-[17.5vw] font-bold uppercase leading-[0.8] whitespace-nowrap tracking-tighter text-[#FFFFF0] -ml-[0.04em]">
               Saiimonn
               <span className="sr-only"> — Simon Gabriel Gementiza, web developer</span>
             </h1>
@@ -92,7 +92,7 @@ const LandingPage = () => {
               </h3>
               <p className="text-base sm:text-lg leading-relaxed opacity-80 text-justify">
                 I&apos;m a computer science student who designs and develops full-stack web
-                applications as well as analyze data.
+                applications and analyzes data.
                 <br /><br />
                 I work effectively in collaborative environments, adapt quickly to new
                 tools and technologies, and learn fast. But more importantly, I build fast

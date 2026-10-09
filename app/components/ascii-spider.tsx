@@ -108,7 +108,8 @@ const AsciiSpider = ({ cols, rows }: { cols: number; rows: number }) => {
   useEffect(() => {
     const pre = ref.current;
     if (!pre) return;
-    const pts = buildSpider();
+    let pts: ReturnType<typeof buildSpider> | null = null;
+    const points = () => (pts ??= buildSpider());
 
     // Scale the font so the grid fills the frame width
     const fit = () => {
@@ -119,14 +120,14 @@ const AsciiSpider = ({ cols, rows }: { cols: number; rows: number }) => {
     ro.observe(pre.parentElement!);
 
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      pre.textContent = render(pts, cols, rows, 0.5);
+      pre.textContent = render(points(), cols, rows, 0.5);
       return () => ro.disconnect();
     }
 
-    // Only animate while on screen
+    // Only animate while on screen; the point cloud is built on the first visible frame
     let raf = 0;
     const loop = (t: number) => {
-      pre.textContent = render(pts, cols, rows, t / 1400);
+      pre.textContent = render(points(), cols, rows, t / 1400);
       raf = requestAnimationFrame(loop);
     };
     const io = new IntersectionObserver(([entry]) => {

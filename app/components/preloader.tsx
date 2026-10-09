@@ -38,7 +38,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <div
       ref={container}
-      className="fixed inset-0 z-100 flex items-end p-12 bg-[#0a0a0a] text-foreground"
+      className="preloader fixed inset-0 z-100 flex items-end p-12 bg-[#0a0a0a] text-foreground"
     >
       <div className="overflow-hidden">
         <div

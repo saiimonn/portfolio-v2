@@ -58,7 +58,7 @@ export default function AboutPage() {
         <Nav />
       </div>
 
-      <section className="px-6 sm:px-8 md:px-16 pt-32 md:pt-40 pb-24 md:pb-32">
+      <main className="px-6 sm:px-8 md:px-16 pt-32 md:pt-40 pb-24 md:pb-32">
         <div className="overflow-hidden">
           <h1 className="line-reveal text-[22vw] md:text-[14vw] font-bold uppercase leading-[0.85] tracking-tighter text-blood">
             About<span className="sr-only"> Simon Gabriel Gementiza</span>
@@ -74,9 +74,14 @@ export default function AboutPage() {
             <div className="fade-reveal">
               <h2 className="text-xs uppercase tracking-[0.2em] opacity-45 mb-3">Bio</h2>
               <p className="text-lg md:text-2xl leading-relaxed opacity-90">
-                20-year-old CS student at the University of San Carlos, Cebu. I design and
-                build full-stack web apps, and lately, machine learning tools that run in the
-                browser.
+                Simon Gabriel Gementiza (Saiimonn) is a full-stack web developer from Cebu
+                City, Philippines. He studies computer science at the University of San
+                Carlos and, since June 2026, works as a software engineer intern at EvoTech
+                Software Solutions, building features for a Laravel platform that helps
+                Amazon sellers recover reimbursements. He builds with Next.js, React,
+                TypeScript, Laravel, and Supabase. His projects include Study Hub, a study
+                platform his USC classmates use for graded drills and live quiz battles, and
+                Nook, a cafe guide for Cebu with a Flutter app and an owner portal.
               </p>
             </div>
 
@@ -116,14 +121,14 @@ export default function AboutPage() {
                         {e.dates}
                       </span>
                     </div>
-                    <p className="text-base opacity-60">{e.desc}</p>
+                    {e.desc && <p className="text-base opacity-60">{e.desc}</p>}
                   </li>
                 ))}
               </ul>
             </div>
           </div>
         </div>
-      </section>
+      </main>
 
       <Footer />
     </div>

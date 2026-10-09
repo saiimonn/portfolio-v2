@@ -15,7 +15,7 @@ const Footer = () => {
         Got a project?
       </p>
       <h2 className="text-[14vw] md:text-[13vw] font-bold uppercase leading-[0.85] tracking-tighter">
-        Let&apos;s build
+        Let&apos;s build{" "}
         <br />
         something.
       </h2>
@@ -35,7 +35,7 @@ const Footer = () => {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base md:text-lg opacity-80 hover:opacity-100 hover:text-blood transition-colors"
+                className="inline-block py-3 -my-3 text-base md:text-lg opacity-80 hover:opacity-100 hover:text-blood transition-colors"
               >
                 {s.name} ↗
               </Link>
@@ -49,7 +49,7 @@ const Footer = () => {
         <p>
           Cebu, PH — <LocalTime />
         </p>
-        <a href="#top" className="hover:opacity-100">
+        <a href="#top" className="inline-block py-3 -my-3 hover:opacity-100">
           Back to top ↑
         </a>
       </div>

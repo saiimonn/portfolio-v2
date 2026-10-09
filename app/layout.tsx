@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local"
 import "./globals.css";
 import AppProvider from "./provider";
-import { OPEN_GRAPH, SITE_URL } from "./data/site";
+import { OPEN_GRAPH, PERSON_ID, SITE_URL, jsonLd } from "./data/site";
 
 const generalSans = localFont({
   src: '../public/fonts/GeneralSans-Variable.woff2',
@@ -15,11 +15,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Simon Gabriel Gementiza - Web Developer",
-    template: "%s | Simon Gementiza"
+    template: "%s | Simon Gabriel Gementiza"
   },
   description: 
     "Simon Gabriel Gementiza (Saiimonn) is a web developer building full-stack applications with Next.js, React, and Laravel. See selected projects and get in touch.",
-  keywords: ["Simon Gabriel Gementiza", "saiimonn", "web developer", "Next.js", "React", "Laravel"],
   authors: [{ name: "Simon Gabriel Gementiza", url: SITE_URL }],
   creator: "Simon Gabriel Gementiza",
   alternates: {
@@ -56,13 +55,19 @@ export const viewport: Viewport = {
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": `${SITE_URL}/#person`,
+  "@id": PERSON_ID,
   name: "Simon Gabriel Gementiza",
-  alternateName: "saiimonn",
+  alternateName: ["Saiimonn", "Simon Gementiza", "Sai"],
+  description:
+    "Full-stack web developer and computer science student at the University of San Carlos in Cebu City, Philippines, building with Next.js, React, Laravel, and Supabase.",
   url: SITE_URL,
   image: `${SITE_URL}/images/me.jpg`,
-  jobTitle: "Web Developer",
+  jobTitle: "Full-Stack Web Developer",
   email: "gementizasgg08@gmail.com",
+  worksFor: { "@type": "Organization", name: "EvoTech Software Solutions Inc." },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "University of San Carlos" },
+  homeLocation: { "@type": "Place", name: "Cebu City, Philippines" },
+  knowsAbout: ["Next.js", "React", "TypeScript", "Laravel", "Supabase", "Flutter", "Full-stack web development"],
   sameAs: [
     "https://github.com/saiimonn",
     "https://www.linkedin.com/in/simon-gabriel-gementiza-9abb59279/",
@@ -74,10 +79,16 @@ const personJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
   url: SITE_URL,
   name: "Simon Gabriel Gementiza",
-  author: { "@id": `${SITE_URL}/#person` },
+  inLanguage: "en",
+  author: { "@id": PERSON_ID },
+  publisher: { "@id": PERSON_ID },
 };
+
+// Runs before first paint so returning visitors never see the preloader flash
+const preloadFlagScript = `try{if(sessionStorage.getItem("preloaded")==="1"||matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.dataset.preloaded="1"}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -85,18 +96,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: preloadFlagScript }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(personJsonLd) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(websiteJsonLd) }}
         />
       </head>
       <body
+        id="top"
         className={`${generalSans.variable} font-sans antialiased`}
       >
         <AppProvider>
