@@ -129,18 +129,29 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
 
         <div className="mt-20 md:mt-28 flex flex-col gap-16 md:gap-20 max-w-3xl">
-          {study.sections.map((s) => (
-            <section key={s.heading}>
-              <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-blood mb-6">
-                {s.heading}
-              </h2>
-              <div className="flex flex-col gap-5 text-base md:text-lg leading-relaxed opacity-85">
-                {s.paragraphs.map((p) => (
-                  <p key={p.slice(0, 40)}>{p}</p>
-                ))}
-              </div>
-            </section>
-          ))}
+          <section>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-blood mb-6">
+              The problem
+            </h2>
+            <div className="flex flex-col gap-5 text-base md:text-lg leading-relaxed opacity-85">
+              {study.problem.map((p) => (
+                <p key={p.slice(0, 40)}>{p}</p>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-blood mb-6">
+              Main features
+            </h2>
+            <ul className="text-base md:text-lg leading-relaxed">
+              {study.features.map((f) => (
+                <li key={f.slice(0, 40)} className="border-t border-white/10 py-4 opacity-85">
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
 
         {project.img.length > 1 && (
