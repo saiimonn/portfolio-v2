@@ -80,7 +80,7 @@ export default async function CaseStudyPage({ params }: Props) {
       <main className="px-6 sm:px-8 md:px-16 pt-32 md:pt-40 pb-24 md:pb-32">
         <Link
           href="/projects"
-          className="inline-block py-3 -my-3 text-xs uppercase tracking-[0.2em] opacity-50 hover:opacity-100"
+          className="relative inline-block py-3 -my-3 text-xs uppercase tracking-[0.2em] opacity-50 hover:opacity-100"
         >
           ← All projects
         </Link>

@@ -35,7 +35,7 @@ const Footer = () => {
                 href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block py-3 -my-3 text-base md:text-lg opacity-80 hover:opacity-100 hover:text-blood transition-colors"
+                className="relative inline-block py-3 -my-3 text-base md:text-lg opacity-80 hover:opacity-100 hover:text-blood transition-colors"
               >
                 {s.name} ↗
               </Link>
@@ -49,7 +49,7 @@ const Footer = () => {
         <p>
           Cebu, PH — <LocalTime />
         </p>
-        <a href="#top" className="inline-block py-3 -my-3 hover:opacity-100">
+        <a href="#top" className="relative inline-block py-3 -my-3 hover:opacity-100">
           Back to top ↑
         </a>
       </div>
