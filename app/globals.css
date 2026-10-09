@@ -98,3 +98,7 @@ body {
     transition: transform 0.1s linear;
     margin-top: 0;
 }
+/* Repeat visits skip the preloader; the flag is set before first paint in layout.tsx */
+html[data-preloaded] .preloader {
+  display: none;
+}

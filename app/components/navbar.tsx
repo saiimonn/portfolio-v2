@@ -40,7 +40,7 @@ const Nav = () => {
                 <Link
                   href={link.href}
                   onFocus={() => setHidden(false)}
-                  className={`text-sm font-medium tracking-wide transition-all duration-300 ${
+                  className={`inline-block py-3 -my-3 text-sm font-medium tracking-wide transition-all duration-300 ${
                     isActive ? "text-foreground" : "text-foreground/40 hover:text-foreground"
                   }`}
                 >

@@ -9,10 +9,8 @@ import {
   SiPhp,
   SiMysql,
   SiNextdotjs,
-  SiAlacritty,
   SiVercel,
   SiSpring,
-  SiArc,
   SiNodedotjs,
   SiLaravel,
   SiMongodb,
@@ -30,10 +28,8 @@ const TechCarousel = () => {
     { Icon: SiPhp, label: "PHP" },
     { Icon: SiMysql, label: "MySQL" },
     { Icon: SiNextdotjs, label: "NextJS" },
-    { Icon: SiAlacritty, label: "Alacritty" },
     { Icon: SiVercel, label: "Vercel" },
     { Icon: SiSpring, label: "Spring" },
-    { Icon: SiArc, label: "Arc" },
     { Icon: SiNodedotjs, label: "NodeJS" },
     { Icon: SiLaravel, label: "Laravel" },
     { Icon: SiMongodb, label: "MongoDB" },
@@ -48,6 +44,8 @@ const TechCarousel = () => {
           {tripleStack.map((item, index) => (
             <div
               key={index}
+              // the list is rendered twice for the loop; hide the copy from screen readers
+              aria-hidden={index >= stack.length || undefined}
               className="group relative mx-6 sm:mx-10 md:mx-12 flex flex-col items-center justify-center cursor-pointer"
             >
               <span className="scale-0 rounded bg-zinc-700 px-2 py-1 text-xs text-foreground transition-all group-hover:scale-100 group-hover:-translate-y-2 opacity-0 group-hover:opacity-100 whitespace-nowrap z-50">
