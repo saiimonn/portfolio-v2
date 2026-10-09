@@ -96,8 +96,7 @@ export default async function CaseStudyPage({ params }: Props) {
           {[
             { label: "Role", value: project.role },
             { label: "When", value: study.period },
-            { label: "Team", value: study.team },
-            ...study.facts,
+            ...(study.release ? [{ label: "Release", value: study.release }] : []),
             { label: "Stack", value: project.stack.join(", ") },
           ].map((f) => (
             <div key={f.label} className="border-b border-white/10 py-4">

@@ -1,22 +1,15 @@
 // long-form write-ups for /projects/[slug], keyed by the slug in projects.ts;
-// every number here comes from the project's git history or docs
+// facts come from each project's git history and docs, without contribution stats
 export type CaseStudy = {
   period: string;
-  team: string;
-  facts: { label: string; value: string }[];
+  release?: string;
   sections: { heading: string; paragraphs: string[] }[];
 };
 
 export const caseStudies: Record<string, CaseStudy> = {
   "study-hub": {
     period: "Sep 2026 to now",
-    team: "Me and Cris Lucero, with two commits from Niño Calunod",
-    facts: [
-      { label: "Commits", value: "240 in the first month, 113 of them mine" },
-      { label: "Subjects", value: "Programming 1 and 2, DSA, IAS, Graph Theory, Automata Theory" },
-      { label: "Hosting", value: "Self-hosted on the DCISM server" },
-      { label: "Release", value: "1.13.0" },
-    ],
+    release: "1.13.0",
     sections: [
       {
         heading: "The problem",
@@ -52,13 +45,7 @@ export const caseStudies: Record<string, CaseStudy> = {
 
   nook: {
     period: "Feb 2026 to now",
-    team: "Cris Lucero led it; I worked across all four codebases",
-    facts: [
-      { label: "Mobile app", value: "39 of 570 commits mine" },
-      { label: "Owner portal", value: "34 of 100 commits mine" },
-      { label: "Admin panel", value: "24 of 115 commits mine" },
-      { label: "Latest app release", value: "1.1.3" },
-    ],
+    release: "1.1.3",
     sections: [
       {
         heading: "The problem",
@@ -88,13 +75,6 @@ export const caseStudies: Record<string, CaseStudy> = {
 
   "val-residences": {
     period: "Jun to Jul 2025",
-    team: "Me, Cris Lucero, and actuallynotDeru",
-    facts: [
-      { label: "Commits", value: "336 in five weeks, 146 of them mine" },
-      { label: "Pages", value: "30 Inertia pages across three user types" },
-      { label: "Pull requests", value: "89" },
-      { label: "Status", value: "School project, run locally, never deployed" },
-    ],
     sections: [
       {
         heading: "The problem",
