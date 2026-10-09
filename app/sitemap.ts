@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { SITE_URL } from "./data/site";
+import { caseStudies } from "./data/case-studies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -19,5 +20,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.6,
     },
+    ...Object.keys(caseStudies).map((slug) => ({
+      url: `${SITE_URL}/projects/${slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 }

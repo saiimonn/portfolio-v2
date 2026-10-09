@@ -47,6 +47,7 @@ export default function ProjectPage() {
                 key={idx}
                 image={item.img[0]}
                 title={item.name}
+                slug={item.slug}
                 description={item.longDesc}
                 stack={item.stack}
                 repoLink={item.repoLink}

@@ -78,7 +78,7 @@ const ProjectList = () => {
         {selectedWorks.map((item, idx) => (
           <li key={item.slug} className="project-row transition-opacity duration-300">
             <Link
-              href={`/projects#${item.slug}`}
+              href={`/projects/${item.slug}`}
               onMouseEnter={() => setActive(idx)}
               onFocus={() => setActive(idx)}
               className="w-full border-t border-white/10 py-8 md:py-10 flex flex-col gap-4 lg:grid lg:grid-cols-[4rem_1fr_16rem_6rem_18rem] lg:items-center"
