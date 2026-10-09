@@ -5,6 +5,7 @@ import Link from "next/link";
 interface ProjectCardProps {
   image: string;
   title: string;
+  slug: string;
   description: string;
   stack: string[];
   repoLink?: string;
@@ -14,6 +15,7 @@ interface ProjectCardProps {
 export default function ProjectCard({
   image,
   title,
+  slug,
   description,
   stack,
   repoLink,
@@ -54,13 +56,19 @@ export default function ProjectCard({
             ))}
           </div>
 
-          <div className="flex flex-row gap-2">
+          <div className="flex flex-row flex-wrap gap-2">
+            <Link
+              href={`/projects/${slug}`}
+              className="border border-white/40 rounded-full py-3 px-4 text-white hover:bg-white hover:text-black ease-in transition-colors"
+            >
+              Case study →
+            </Link>
             {repoLink && (
               <Link
                 href={repoLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border rounded-full py-2 px-4 bg-white text-black hover:bg-white/20 hover:text-white ease-in transition-colors"
+                className="border rounded-full py-3 px-4 bg-white text-black hover:bg-white/20 hover:text-white ease-in transition-colors"
               >
                 Repository
               </Link>
@@ -71,7 +79,7 @@ export default function ProjectCard({
                 href={siteLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border rounded-full py-2 px-4 bg-white text-black hover:bg-white/20 hover:text-white ease-in transition-colors"
+                className="border rounded-full py-3 px-4 bg-white text-black hover:bg-white/20 hover:text-white ease-in transition-colors"
               >
                 Website
               </Link>
