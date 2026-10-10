@@ -62,6 +62,10 @@ const LandingPage = () => {
           </div>
 
           <div className="overflow-hidden">
+            <p className="text-up lg:hidden flex items-center gap-2 mb-4 text-[11px] sm:text-xs uppercase tracking-[0.2em] opacity-75">
+              <span className="size-2 rounded-full bg-green-400" aria-hidden="true" />
+              Available for work
+            </p>
             <h1 className="text-up text-[17.5vw] font-bold uppercase leading-[0.8] whitespace-nowrap tracking-tighter text-[#FFFFF0] -ml-[0.04em]">
               Saiimonn
               <span className="sr-only"> — Simon Gabriel Gementiza, web developer</span>
@@ -90,7 +94,7 @@ const LandingPage = () => {
               <h3 className="text-4xl sm:text-5xl md:text-7xl font-semibold text-blood mb-6 md:mb-8">
                 Hello, I&apos;m Sai
               </h3>
-              <p className="text-base sm:text-lg leading-relaxed opacity-80 text-justify">
+              <p className="text-base sm:text-lg leading-relaxed opacity-80">
                 I&apos;m a computer science student who designs and develops full-stack web
                 applications and analyzes data.
                 <br /><br />
