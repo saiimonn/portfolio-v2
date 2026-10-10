@@ -10,7 +10,7 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="bg-background text-foreground border-t border-white/5 pt-24 md:pt-32 pb-10 px-6 sm:px-8 md:px-16">
+    <footer id="contact" className="bg-background text-foreground border-t border-white/5 pt-24 md:pt-32 pb-10 px-6 sm:px-8 md:px-16">
       <p className="text-xs sm:text-sm uppercase tracking-[0.2em] opacity-50 mb-6">
         Got a project?
       </p>
@@ -25,7 +25,7 @@ const Footer = () => {
           href="mailto:gementizasgg08@gmail.com"
           className="text-2xl sm:text-3xl md:text-4xl font-medium text-blood underline decoration-1 underline-offset-8 hover:text-foreground transition-colors break-all"
         >
-          gementizasgg08@gmail.com →
+          gementizasgg08@gmail.com<span className="hidden sm:inline"> →</span>
         </Link>
 
         <ul className="flex flex-wrap gap-x-8 gap-y-2">

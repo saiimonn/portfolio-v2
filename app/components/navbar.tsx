@@ -22,7 +22,7 @@ const Nav = () => {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Work", href: "/projects" },
-    { name: "Contact", href: "mailto:gementizasgg08@gmail.com" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -40,8 +40,8 @@ const Nav = () => {
                 <Link
                   href={link.href}
                   onFocus={() => setHidden(false)}
-                  className={`relative inline-block py-3 -my-3 text-sm font-medium tracking-wide transition-all duration-300 ${
-                    isActive ? "text-foreground" : "text-foreground/40 hover:text-foreground"
+                  className={`relative inline-block py-3 -my-3 text-sm font-medium tracking-wide transition-colors duration-300 ${
+                    isActive ? "text-foreground" : "text-foreground/60 hover:text-foreground"
                   }`}
                 >
                   {link.name}
