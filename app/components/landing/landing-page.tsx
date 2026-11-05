@@ -14,7 +14,7 @@ const links = [
   { name: "gementizasgg08@gmail.com", url: "mailto:gementizasgg08@gmail.com" },
 ];
 
-const label = "text-[11px] uppercase tracking-[0.2em] text-foreground/60";
+const label = "text-[11px] uppercase tracking-[0.2em] text-foreground/75";
 
 // One screen on desktop: info column left, spider (or hovered project) right
 const LandingPage = () => {
@@ -34,12 +34,12 @@ const LandingPage = () => {
         <header className="space-y-4">
           <div className="overflow-hidden">
             <h1 className="text-up text-6xl sm:text-7xl xl:text-8xl font-semibold tracking-tighter leading-[0.9]">
-              Saiimonn<span className="text-black">.</span>
+              Saiimonn<span className="text-background">.</span>
               <span className="sr-only"> — Simon Gabriel Gementiza, web developer</span>
             </h1>
           </div>
           <div className="overflow-hidden">
-            <p className="text-up flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-foreground/60">
+            <p className="text-up flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-foreground/75">
               <span>Full-stack developer</span>
               <span aria-hidden="true">·</span>
               <span>
@@ -58,7 +58,7 @@ const LandingPage = () => {
                 <a
                   href={l.url}
                   {...(l.url.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
-                  className="relative inline-block py-2 -my-2 text-foreground/80 underline decoration-foreground/20 underline-offset-4 hover:text-black hover:decoration-black transition-colors"
+                  className="relative inline-block py-2 -my-2 text-foreground/80 underline decoration-foreground/20 underline-offset-4 hover:text-background hover:decoration-background transition-colors"
                 >
                   {l.name}
                 </a>
@@ -81,14 +81,14 @@ const LandingPage = () => {
                   onBlur={() => setActive(null)}
                   className="group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-3 py-3"
                 >
-                  <span className="text-xs text-foreground/60">{p.number}</span>
+                  <span className="text-xs text-foreground/75">{p.number}</span>
                   <span>
-                    <span className="text-xl sm:text-2xl font-medium tracking-tight group-hover:text-black transition-colors">
+                    <span className="text-xl sm:text-2xl font-medium tracking-tight group-hover:text-background transition-colors">
                       {p.name}
                     </span>
-                    <span className="hidden sm:block text-sm text-foreground/70 mt-0.5 [@media(min-width:1024px)_and_(max-height:820px)]:hidden">{p.shortDesc}</span>
+                    <span className="hidden sm:block text-sm text-foreground/80 mt-0.5 [@media(min-width:1024px)_and_(max-height:820px)]:hidden">{p.shortDesc}</span>
                   </span>
-                  <span className="text-xs text-foreground/60">{p.year}</span>
+                  <span className="text-xs text-foreground/75">{p.year}</span>
                 </Link>
               </li>
             ))}
@@ -102,16 +102,16 @@ const LandingPage = () => {
             </h2>
             <p className="text-base">
               {job.role}
-              <span className="text-foreground/70"> at {job.org}</span>
+              <span className="text-foreground/80"> at {job.org}</span>
             </p>
-            <p className="text-xs text-foreground/60 mt-1">{job.dates}</p>
+            <p className="text-xs text-foreground/75 mt-1">{job.dates}</p>
           </section>
         )}
 
         <nav aria-label="Pages" className="flex flex-wrap gap-3 text-sm">
           <Link
             href="/projects"
-            className="bg-foreground text-background px-5 py-2.5 rounded-full font-medium hover:bg-black hover:text-foreground transition-colors"
+            className="bg-foreground text-background px-5 py-2.5 rounded-full font-medium hover:bg-background hover:text-foreground transition-colors"
           >
             All work →
           </Link>
