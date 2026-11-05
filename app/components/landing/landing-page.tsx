@@ -1,122 +1,144 @@
 "use client";
 
-import TechCarousel from "./tech-carousel";
-import ProjectList from "./project-list";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import Footer from "./footer";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import LocalTime from "../local-time";
 import AsciiSpider from "../ascii-spider";
+import { projects } from "@/app/data/projects";
+import { experience } from "@/app/data/experience";
 
+const links = [
+  { name: "GitHub", url: "https://www.github.com/saiimonn" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/simon-gabriel-gementiza-9abb59279/" },
+  { name: "gementizasgg08@gmail.com", url: "mailto:gementizasgg08@gmail.com" },
+];
+
+const label = "text-[11px] uppercase tracking-[0.2em] text-foreground/40";
+
+// One screen on desktop: info column left, spider (or hovered project) right
 const LandingPage = () => {
-  const mainRef = useRef(null);
-  const aboutContainer = useRef(null);
-
-  useGSAP(
-    () => {
-      gsap.registerPlugin(ScrollTrigger);
-
-      gsap.from(".about-content > *", {
-        scrollTrigger: {
-          trigger: aboutContainer.current,
-          start: "top 70%",
-          toggleActions: "play none none reverse",
-        },
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power4.out",
-      });
-    },
-    { scope: mainRef },
-  );
+  const [active, setActive] = useState<number | null>(null);
+  const job = experience.find((e) => e.current && e.org !== "University of San Carlos");
 
   return (
-    <div ref={mainRef} className="relative w-full font-sans bg-black">
-      {/* --- STICKY HERO SECTION --- */}
-      <section className="hero-section sticky top-0 h-svh w-full overflow-hidden z-0 bg-black border-b border-white/5">
-        <div className="grain-overlay opacity-[0.06] z-20 pointer-events-none" />
-        <div className="absolute inset-0 bg-black/30 pointer-events-none z-10" />
-
-        <div className="hero-gradient -z-10" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </div>
-
-        <div className="relative flex flex-col justify-between h-full w-full px-6 sm:px-8 md:px-16 pt-28 md:pt-32 pb-6 md:pb-10 z-30 text-foreground">
+    <div className="relative w-full min-h-svh lg:h-svh lg:overflow-hidden grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] bg-background text-foreground">
+      <main className="flex flex-col justify-center-safe gap-10 [@media(max-height:820px)]:gap-6 px-6 sm:px-10 lg:pl-[max(4rem,8vw)] lg:pr-10 py-16 lg:py-10 lg:overflow-y-auto">
+        <header className="space-y-4">
           <div className="overflow-hidden">
-            <div className="text-up flex justify-between gap-4 whitespace-nowrap text-[11px] sm:text-xs uppercase tracking-[0.2em] opacity-75">
-              <span>Full-Stack Developer</span>
-              <span className="hidden lg:flex items-center gap-2">
-                <span className="size-2 rounded-full bg-green-400" aria-hidden="true" />
-                Available for work
-              </span>
-              <span>
-                Cebu, PH — <LocalTime /><span className="hidden sm:inline"> GMT+8</span>
-              </span>
-            </div>
-          </div>
-
-          <div className="overflow-hidden">
-            <p className="text-up lg:hidden flex items-center gap-2 mb-4 text-[11px] sm:text-xs uppercase tracking-[0.2em] opacity-75">
-              <span className="size-2 rounded-full bg-green-400" aria-hidden="true" />
-              Available for work
-            </p>
-            <h1 className="text-up text-[17.5vw] font-bold uppercase leading-[0.8] whitespace-nowrap tracking-tighter text-[#FFFFF0] -ml-[0.04em]">
-              Saiimonn
+            <h1 className="text-up text-6xl sm:text-7xl xl:text-8xl font-semibold tracking-tighter leading-[0.9]">
+              Saiimonn<span className="text-blood">.</span>
               <span className="sr-only"> — Simon Gabriel Gementiza, web developer</span>
             </h1>
           </div>
-        </div>
-      </section>
+          <div className="overflow-hidden">
+            <p className="text-up flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-foreground/60">
+              <span>Full-stack developer</span>
+              <span aria-hidden="true">·</span>
+              <span>
+                Cebu, PH <LocalTime /> GMT+8
+              </span>
+              <span aria-hidden="true">·</span>
+              <span className="flex items-center gap-2">
+                <span className="size-1.5 rounded-full bg-green-400" aria-hidden="true" />
+                Available for work
+              </span>
+            </p>
+          </div>
+          <ul className="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+            {links.map((l) => (
+              <li key={l.name}>
+                <a
+                  href={l.url}
+                  {...(l.url.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
+                  className="relative inline-block py-2 -my-2 text-foreground/80 underline decoration-foreground/20 underline-offset-4 hover:text-blood hover:decoration-blood transition-colors"
+                >
+                  {l.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </header>
 
-      {/* --- MAIN CONTENT --- */}
-      <main className="relative z-40 bg-background shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
-        {/* About Me */}
-        <section
-          ref={aboutContainer}
-          className="about-content flex flex-col md:flex-row w-full h-auto py-20 md:py-32 px-6 md:px-8 text-foreground border-b border-foreground/5 gap-10 md:gap-0"
-        >
-          <div className="flex items-center justify-start">
-            <h2 className="text-4xl md:text-8xl font-medium text-blood uppercase tracking-tighter md:whitespace-nowrap md:[writing-mode:vertical-rl] md:rotate-180">
-              About Me
+        <section aria-labelledby="work-heading">
+          <h2 id="work-heading" className={`${label} mb-3`}>
+            Selected work
+          </h2>
+          <ul className="project-list border-t border-white/10" onMouseLeave={() => setActive(null)}>
+            {projects.map((p, i) => (
+              <li key={p.slug} className="project-row border-b border-white/10 transition-opacity duration-300">
+                <Link
+                  href={`/projects/${p.slug}`}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                  onBlur={() => setActive(null)}
+                  className="group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-3 py-3"
+                >
+                  <span className="text-xs text-foreground/40">{p.number}</span>
+                  <span>
+                    <span className="text-xl sm:text-2xl font-medium tracking-tight group-hover:text-blood transition-colors">
+                      {p.name}
+                    </span>
+                    <span className="hidden sm:block text-sm text-foreground/50 mt-0.5 [@media(min-width:1024px)_and_(max-height:820px)]:hidden">{p.shortDesc}</span>
+                  </span>
+                  <span className="text-xs text-foreground/40">{p.year}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {job && (
+          <section aria-labelledby="now-heading">
+            <h2 id="now-heading" className={`${label} mb-3`}>
+              Now
             </h2>
-          </div>
-          <div className="flex flex-1 flex-col md:flex-row items-center justify-center px-0 md:px-12 gap-10 md:gap-32">
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-lg md:h-128 aspect-square shrink-0 rounded-sm overflow-hidden grid place-items-center">
-              <AsciiSpider cols={50} rows={30} />
-            </div>
-            <div className="max-w-xl text-center md:text-left">
-              <h3 className="text-4xl sm:text-5xl md:text-7xl font-semibold text-blood mb-6 md:mb-8">
-                Hello, I&apos;m Sai
-              </h3>
-              <p className="text-base sm:text-lg leading-relaxed opacity-80">
-                I&apos;m a computer science student who designs and develops full-stack web
-                applications and analyzes data.
-                <br /><br />
-                I work effectively in collaborative environments, adapt quickly to new
-                tools and technologies, and learn fast. But more importantly, I build fast
-                and with intention.
-              </p>
-            </div>
-          </div>
-        </section>
+            <p className="text-base">
+              {job.role}
+              <span className="text-foreground/50"> at {job.org}</span>
+            </p>
+            <p className="text-xs text-foreground/40 mt-1">{job.dates}</p>
+          </section>
+        )}
 
-        <div className="py-24 border-b border-white/5">
-          <TechCarousel />
-        </div>
-
-        {/* Project List */}
-        <section>
-          <ProjectList />
-        </section>
-
-        <Footer />
+        <nav aria-label="Pages" className="flex flex-wrap gap-3 text-sm">
+          <Link
+            href="/projects"
+            className="bg-foreground text-background px-5 py-2.5 rounded-full font-medium hover:bg-blood hover:text-foreground transition-colors"
+          >
+            All work →
+          </Link>
+          <Link
+            href="/about"
+            className="px-5 py-2.5 rounded-full border border-white/15 hover:border-foreground transition-colors"
+          >
+            About me →
+          </Link>
+        </nav>
       </main>
+
+      <aside
+        aria-hidden="true"
+        className="relative hidden lg:grid place-items-center overflow-hidden border-l border-white/5 bg-black"
+      >
+        <div
+          className={`absolute inset-0 flex items-center transition-opacity duration-500 ${active === null ? "opacity-100" : "opacity-0"}`}
+        >
+          <AsciiSpider cols={80} rows={56} />
+        </div>
+        {projects.map((p, i) => (
+          <div
+            key={p.slug}
+            className={`absolute inset-10 xl:inset-16 grid place-items-center transition-[opacity,scale] duration-500 ${
+              active === i ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
+          >
+            <div className="relative w-full aspect-16/10 rounded-xl overflow-hidden ring-1 ring-white/15 shadow-2xl">
+              <Image src={p.img[0]} alt="" fill sizes="50vw" className="object-cover" />
+            </div>
+          </div>
+        ))}
+      </aside>
     </div>
   );
 };

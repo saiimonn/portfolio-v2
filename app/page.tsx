@@ -5,7 +5,6 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import Preloader from "./components/preloader"
 import Landing from "./components/landing/landing-page";
-import Nav from "./components/navbar";
 
 // Set before first paint by the inline script in layout.tsx
 const skipIntro = () => document.documentElement.dataset.preloaded === "1";
@@ -36,29 +35,17 @@ export default function Home() {
 
     const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-    tl.fromTo(".nav-wrapper",
-      { y: -120, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.5,
-        delay: 0.3
-      }
-    )
-      .to(".text-up", {
-        yPercent: 0,
-        duration: 1.5,
-        stagger: 0.2,
-      }, "-=0.8");
+    tl.to(".text-up", {
+      yPercent: 0,
+      duration: 1.5,
+      stagger: 0.2,
+      delay: 0.2,
+    });
   }, { scope: container, dependencies: [isLoading] });
 
   return (
-    <div ref={container} className="bg-black">
+    <div ref={container} className="bg-background">
       {isLoading && <Preloader onComplete={finishLoading} />}
-
-      <div className={`nav-wrapper fixed left-1/2 z-60 ${isLoading ? 'invisible' : 'visible'}`}>
-        <Nav />
-      </div>
 
       <Landing />
     </div>
