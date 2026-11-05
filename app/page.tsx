@@ -44,7 +44,7 @@ export default function Home() {
   }, { scope: container, dependencies: [isLoading] });
 
   return (
-    <div ref={container} className="bg-background">
+    <div ref={container} className="bg-black">
       {isLoading && <Preloader onComplete={finishLoading} />}
 
       <Landing />

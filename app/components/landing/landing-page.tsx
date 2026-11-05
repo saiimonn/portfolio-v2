@@ -14,7 +14,7 @@ const links = [
   { name: "gementizasgg08@gmail.com", url: "mailto:gementizasgg08@gmail.com" },
 ];
 
-const label = "text-[11px] uppercase tracking-[0.2em] text-foreground/40";
+const label = "text-[11px] uppercase tracking-[0.2em] text-foreground/60";
 
 // One screen on desktop: info column left, spider (or hovered project) right
 const LandingPage = () => {
@@ -22,12 +22,19 @@ const LandingPage = () => {
   const job = experience.find((e) => e.current && e.org !== "University of San Carlos");
 
   return (
-    <div className="relative w-full min-h-svh lg:h-svh lg:overflow-hidden grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] bg-background text-foreground">
+    <div className="relative w-full min-h-svh lg:h-svh lg:overflow-hidden grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] isolate overflow-hidden text-foreground">
+      <div className="hero-gradient -z-10" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="absolute inset-0 -z-10 bg-black/30 pointer-events-none" aria-hidden="true" />
+      <div className="grain-overlay -z-10 opacity-[0.06]" aria-hidden="true" />
       <main className="flex flex-col justify-center-safe gap-10 [@media(max-height:820px)]:gap-6 px-6 sm:px-10 lg:pl-[max(4rem,8vw)] lg:pr-10 py-16 lg:py-10 lg:overflow-y-auto">
         <header className="space-y-4">
           <div className="overflow-hidden">
             <h1 className="text-up text-6xl sm:text-7xl xl:text-8xl font-semibold tracking-tighter leading-[0.9]">
-              Saiimonn<span className="text-blood">.</span>
+              Saiimonn<span className="text-black">.</span>
               <span className="sr-only"> — Simon Gabriel Gementiza, web developer</span>
             </h1>
           </div>
@@ -51,7 +58,7 @@ const LandingPage = () => {
                 <a
                   href={l.url}
                   {...(l.url.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
-                  className="relative inline-block py-2 -my-2 text-foreground/80 underline decoration-foreground/20 underline-offset-4 hover:text-blood hover:decoration-blood transition-colors"
+                  className="relative inline-block py-2 -my-2 text-foreground/80 underline decoration-foreground/20 underline-offset-4 hover:text-black hover:decoration-black transition-colors"
                 >
                   {l.name}
                 </a>
@@ -64,9 +71,9 @@ const LandingPage = () => {
           <h2 id="work-heading" className={`${label} mb-3`}>
             Selected work
           </h2>
-          <ul className="project-list border-t border-white/10" onMouseLeave={() => setActive(null)}>
+          <ul className="project-list border-t border-white/20" onMouseLeave={() => setActive(null)}>
             {projects.map((p, i) => (
-              <li key={p.slug} className="project-row border-b border-white/10 transition-opacity duration-300">
+              <li key={p.slug} className="project-row border-b border-white/20 transition-opacity duration-300">
                 <Link
                   href={`/projects/${p.slug}`}
                   onMouseEnter={() => setActive(i)}
@@ -74,14 +81,14 @@ const LandingPage = () => {
                   onBlur={() => setActive(null)}
                   className="group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-3 py-3"
                 >
-                  <span className="text-xs text-foreground/40">{p.number}</span>
+                  <span className="text-xs text-foreground/60">{p.number}</span>
                   <span>
-                    <span className="text-xl sm:text-2xl font-medium tracking-tight group-hover:text-blood transition-colors">
+                    <span className="text-xl sm:text-2xl font-medium tracking-tight group-hover:text-black transition-colors">
                       {p.name}
                     </span>
-                    <span className="hidden sm:block text-sm text-foreground/50 mt-0.5 [@media(min-width:1024px)_and_(max-height:820px)]:hidden">{p.shortDesc}</span>
+                    <span className="hidden sm:block text-sm text-foreground/70 mt-0.5 [@media(min-width:1024px)_and_(max-height:820px)]:hidden">{p.shortDesc}</span>
                   </span>
-                  <span className="text-xs text-foreground/40">{p.year}</span>
+                  <span className="text-xs text-foreground/60">{p.year}</span>
                 </Link>
               </li>
             ))}
@@ -95,16 +102,16 @@ const LandingPage = () => {
             </h2>
             <p className="text-base">
               {job.role}
-              <span className="text-foreground/50"> at {job.org}</span>
+              <span className="text-foreground/70"> at {job.org}</span>
             </p>
-            <p className="text-xs text-foreground/40 mt-1">{job.dates}</p>
+            <p className="text-xs text-foreground/60 mt-1">{job.dates}</p>
           </section>
         )}
 
         <nav aria-label="Pages" className="flex flex-wrap gap-3 text-sm">
           <Link
             href="/projects"
-            className="bg-foreground text-background px-5 py-2.5 rounded-full font-medium hover:bg-blood hover:text-foreground transition-colors"
+            className="bg-foreground text-background px-5 py-2.5 rounded-full font-medium hover:bg-black hover:text-foreground transition-colors"
           >
             All work →
           </Link>
@@ -119,7 +126,7 @@ const LandingPage = () => {
 
       <aside
         aria-hidden="true"
-        className="relative hidden lg:grid place-items-center overflow-hidden border-l border-white/5 bg-black"
+        className="relative hidden lg:grid place-items-center overflow-hidden border-l border-white/20 [&_pre]:text-foreground/80"
       >
         <div
           className={`absolute inset-0 flex items-center transition-opacity duration-500 ${active === null ? "opacity-100" : "opacity-0"}`}
