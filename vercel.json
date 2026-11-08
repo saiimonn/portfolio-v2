@@ -9,7 +9,7 @@
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "saiimonn.vercel.app" }],
-      "destination": "https://saiimonn.surgestudio.tech/$1",
+      "destination": "https://saiimonn.xaria.dev/$1",
       "permanent": true
     }
   ]
