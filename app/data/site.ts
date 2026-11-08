@@ -1,4 +1,4 @@
-export const SITE_URL = "https://saiimonn.surgestudio.tech";
+export const SITE_URL = "https://saiimonn.xaria.dev";
 
 export const OPEN_GRAPH = {
   type: "website",
