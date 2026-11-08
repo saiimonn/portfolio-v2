@@ -84,7 +84,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </Link>
 
         <h1 className="mt-6 text-6xl sm:text-7xl md:text-8xl xl:text-9xl font-semibold tracking-tighter leading-[0.9]">
-          {project.name}<span className="text-blood">.</span>
+          {project.name}<span className="text-background">.</span>
         </h1>
         <p className="mt-6 max-w-3xl text-lg md:text-2xl leading-relaxed">
           {project.shortDesc}

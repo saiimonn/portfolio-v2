@@ -32,7 +32,7 @@ export default function AboutPage({ contributions }: { contributions?: ReactNode
         <main className="flex flex-col gap-12 py-12 lg:py-20">
           <div className="overflow-hidden">
             <h1 className="line-reveal text-5xl sm:text-6xl xl:text-7xl font-semibold tracking-tighter leading-[0.9]">
-              About<span className="text-blood">.</span>
+              About<span className="text-background">.</span>
               <span className="sr-only"> Simon Gabriel Gementiza</span>
             </h1>
           </div>
