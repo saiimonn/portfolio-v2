@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local"
 import "./globals.css";
 import AppProvider from "./provider";
+import Backdrop from "./components/site/backdrop";
 import { OPEN_GRAPH, PERSON_ID, SITE_URL, jsonLd } from "./data/site";
 
 const generalSans = localFont({
@@ -112,6 +113,7 @@ export default function RootLayout({
         id="top"
         className={`${generalSans.variable} font-sans antialiased`}
       >
+        <Backdrop />
         <AppProvider>
           {children}
         </AppProvider>

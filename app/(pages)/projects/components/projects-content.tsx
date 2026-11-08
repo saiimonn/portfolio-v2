@@ -1,64 +1,22 @@
-"use client";
-import { useRef } from "react";
-import Nav from "@/app/components/navbar";
-import { projects } from "@/app/data/projects";
-import ProjectCard from "./project-card";
-import Footer from "@/app/components/landing/footer";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import ProjectIndex from "@/app/components/project-index";
+import SiteHeader from "@/app/components/site/site-header";
+import SiteFooter from "@/app/components/site/site-footer";
 
+// Same shell as the landing: one screen on desktop, index left, preview right
 export default function ProjectPage() {
-  const container = useRef(null);
-
-  useGSAP(
-    () => {
-      gsap.from(".project-card-wrapper", {
-        y: 60,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        clearProps: "all",
-      });
-
-      gsap.from(".nav-wrapper", {
-        y: -20,
-        opacity: 0,
-        duration: 1,
-        delay: 0.5,
-        ease: "power2.out",
-      });
-    },
-    { scope: container },
-  );
-
   return (
-    <div ref={container} className="bg-[#121212] min-h-screen">
-      <div className="nav-wrapper fixed left-1/2 -translate-x-1/2 top-6 z-50">
-        <Nav />
-      </div>
-
-      <main className="relative w-full font-sans pt-24 sm:pt-28 md:pt-32 px-4 sm:px-6 md:px-12 pb-16 sm:pb-20 md:pb-24">
-        <h1 className="sr-only">Projects by Simon Gabriel Gementiza</h1>
-        <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
-          {projects.map((item, idx) => (
-            <div key={item.slug} id={item.slug} className="project-card-wrapper scroll-mt-24">
-              <ProjectCard
-                key={idx}
-                image={item.img[0]}
-                title={item.name}
-                slug={item.slug}
-                description={item.longDesc}
-                stack={item.stack}
-                repoLink={item.repoLink}
-                siteLink={item.siteLink}
-              />
-            </div>
-          ))}
-        </div>
-      </main>
-
-      <Footer />
+    <div className="min-h-svh lg:h-svh overflow-hidden flex flex-col text-foreground">
+      <SiteHeader />
+      <ProjectIndex
+        pitch
+        top={
+          <h1 className="text-5xl sm:text-6xl xl:text-7xl font-semibold tracking-tighter leading-[0.9]">
+            Work<span className="text-background">.</span>
+            <span className="sr-only"> — projects by Simon Gabriel Gementiza</span>
+          </h1>
+        }
+      />
+      <SiteFooter />
     </div>
   );
 }
