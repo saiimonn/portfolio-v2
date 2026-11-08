@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { OPEN_GRAPH, PERSON_ID, SITE_URL, jsonLd } from "@/app/data/site";
 import AboutPage from "./components/about-content";
+import ContributionGraph from "@/app/components/contribution-graph";
+import { getContributions } from "@/app/data/github";
 
 export const metadata: Metadata = {
   title: "About",
@@ -24,14 +26,15 @@ const profileJsonLd = {
   isPartOf: { "@id": `${SITE_URL}/#website` },
 };
 
-const About = () => {
+const About = async () => {
+  const contributions = await getContributions();
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(profileJsonLd) }}
       />
-      <AboutPage />
+      <AboutPage contributions={contributions && <ContributionGraph data={contributions} />} />
     </>
   )
 }

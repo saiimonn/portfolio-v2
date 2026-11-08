@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import AsciiSpider from "@/app/components/ascii-spider";
@@ -10,7 +10,7 @@ import { experience } from "@/app/data/experience";
 
 const stack = ["Next.js", "React", "TypeScript", "Tailwind CSS", "Laravel", "Supabase", "FastAPI", "OpenCV", "MySQL"];
 
-export default function AboutPage() {
+export default function AboutPage({ contributions }: { contributions?: ReactNode }) {
   const container = useRef<HTMLDivElement | null>(null);
 
   useGSAP(
@@ -82,6 +82,8 @@ export default function AboutPage() {
               ))}
             </ul>
           </section>
+
+          {contributions && <section className="fade-reveal">{contributions}</section>}
         </main>
 
         {/* spider stays in view while the bio scrolls */}

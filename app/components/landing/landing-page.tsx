@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import ProjectIndex, { label } from "../project-index";
 import SiteHeader from "../site/site-header";
 import { experience } from "@/app/data/experience";
@@ -9,7 +10,7 @@ const NAME = "Saiimonn";
 const links = [...SOCIALS.slice(0, 2), { name: "Email", url: `mailto:${EMAIL}` }];
 
 // One screen on desktop: header, project index + preview stage, giant name along the bottom
-const LandingPage = () => {
+const LandingPage = ({ contributions }: { contributions?: ReactNode }) => {
   const job = experience.find((e) => e.current && e.org !== "University of San Carlos");
 
   return (
@@ -22,6 +23,8 @@ const LandingPage = () => {
 
       <ProjectIndex
         bottom={
+          <>
+          {contributions && <div className="[@media(max-height:760px)]:hidden">{contributions}</div>}
           <div className="flex flex-wrap items-end justify-between gap-6 text-sm">
             {job && (
               <p>
@@ -43,6 +46,7 @@ const LandingPage = () => {
               ))}
             </ul>
           </div>
+          </>
         }
       />
 
