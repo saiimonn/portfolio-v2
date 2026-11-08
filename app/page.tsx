@@ -29,18 +29,19 @@ export default function Home() {
   // visit it is tucked away under the preloader and slid back in afterwards
   useGSAP(() => {
     if (isLoading) {
-      if (!skipIntro()) gsap.set(".text-up", { yPercent: 110 });
+      if (!skipIntro()) gsap.set(".text-up, .char-up", { yPercent: 110 });
       return;
     }
 
     const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-    tl.to(".text-up", {
+    tl.to(".char-up", {
       yPercent: 0,
-      duration: 1.5,
-      stagger: 0.2,
+      duration: 1.4,
+      stagger: 0.05,
       delay: 0.2,
-    });
+    })
+      .to(".text-up", { yPercent: 0, duration: 1.2 }, "-=1");
   }, { scope: container, dependencies: [isLoading] });
 
   return (

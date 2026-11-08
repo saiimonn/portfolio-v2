@@ -111,9 +111,11 @@ const AsciiSpider = ({ cols, rows }: { cols: number; rows: number }) => {
     let pts: ReturnType<typeof buildSpider> | null = null;
     const points = () => (pts ??= buildSpider());
 
-    // Scale the font so the grid fills the frame width
+    // Scale the font so the grid fits the frame (width, and height when the frame has one)
     const fit = () => {
-      pre.style.fontSize = `${pre.parentElement!.clientWidth / (cols * 0.6)}px`;
+      const { clientWidth: w, clientHeight: h } = pre.parentElement!;
+      const byWidth = w / (cols * 0.6);
+      pre.style.fontSize = `${h ? Math.min(byWidth, h / rows) : byWidth}px`;
     };
     fit();
     const ro = new ResizeObserver(fit);
