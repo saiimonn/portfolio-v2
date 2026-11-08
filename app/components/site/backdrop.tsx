@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-// Domain-warped fbm smoke folded into sine bands: red field, black ribbons (~20% of the area)
+// Domain-warped fbm smoke folded into sine bands: charcoal field, muted oxblood ribbons
 const FRAG = `precision highp float;
 uniform vec2 res;
 uniform float time;
@@ -29,13 +29,12 @@ void main() {
   float field = (p.x * 0.45 + p.y * 0.3 + 1.5 * fbm(p * 0.85 + warp * 1.6 + time * 0.02)) * 1.4 - time * 0.04;
   float band = 0.5 + 0.5 * sin(field * 6.2832);
 
-  // red base with soft light/dark drift, black where the band peaks
-  float glow = 0.5 + 0.5 * sin(field * 6.2832 - 2.2);
-  vec3 red = mix(vec3(0.55, 0.05, 0.02), vec3(0.86, 0.13, 0.05), glow);
-  float ink = smoothstep(0.79, 0.97, band);
-  vec3 col = mix(red, vec3(0.035, 0.012, 0.01), ink);
+  // quiet: warm charcoal field, muted oxblood smoke, a faint warm highlight on the crests
+  vec3 base = vec3(0.075, 0.066, 0.06);
+  vec3 smoke = vec3(0.34, 0.1, 0.075);
+  vec3 col = base + smoke * pow(band, 3.0) * 0.85 + vec3(0.09, 0.06, 0.045) * pow(band, 12.0);
 
-  col *= 1.0 - 0.35 * length(uv - 0.5); // vignette
+  col *= 1.0 - 0.45 * length(uv - 0.5); // vignette
   gl_FragColor = vec4(col, 1.0);
 }`;
 
@@ -95,7 +94,7 @@ const Backdrop = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10 pointer-events-none bg-[#a3140a]" aria-hidden="true">
+    <div className="fixed inset-0 -z-10 pointer-events-none bg-[#131110]" aria-hidden="true">
       <canvas ref={ref} className="h-full w-full" />
       <div className="absolute inset-0 opacity-[0.14]" style={{ backgroundImage: NOISE }} />
     </div>

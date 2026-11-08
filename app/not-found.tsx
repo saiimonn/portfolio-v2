@@ -16,7 +16,7 @@ export default function NotFound() {
           </Link>
         </p>
         <h1 className="font-bold leading-[0.8] tracking-tighter text-[min(45vw,60svh)] -ml-[0.04em]">
-          404<span className="text-background">.</span>
+          404<span className="text-blood">.</span>
         </h1>
       </main>
     </div>

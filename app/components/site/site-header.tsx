@@ -21,7 +21,7 @@ const SiteHeader = () => {
   return (
     <header className="grid grid-cols-[auto_1fr] lg:grid-cols-4 items-center gap-x-6 px-6 sm:px-8 md:px-12 pt-6 md:pt-8 text-[11px] sm:text-xs uppercase tracking-[0.2em]">
       <Link href="/" className="relative py-2 -my-2 normal-case tracking-tight text-base font-semibold">
-        Saiimonn<span className="text-background">.</span>
+        Saiimonn<span className="text-blood">.</span>
         <span className="sr-only"> — home</span>
       </Link>
       <span className="hidden lg:block text-center text-foreground/75">

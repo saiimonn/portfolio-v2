@@ -11,7 +11,7 @@ export default function ProjectPage() {
         pitch
         top={
           <h1 className="text-5xl sm:text-6xl xl:text-7xl font-semibold tracking-tighter leading-[0.9]">
-            Work<span className="text-background">.</span>
+            Work<span className="text-blood">.</span>
             <span className="sr-only"> — projects by Simon Gabriel Gementiza</span>
           </h1>
         }
