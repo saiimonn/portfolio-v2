@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import ProjectIndex, { label } from "../project-index";
 import SiteHeader from "../site/site-header";
 import { experience } from "@/app/data/experience";
@@ -15,10 +15,8 @@ const LandingPage = ({ contributions }: { contributions?: ReactNode }) => {
 
   return (
     <div className="relative w-full min-h-svh lg:h-svh overflow-hidden flex flex-col text-foreground">
-      <div className="overflow-hidden">
-        <div className="text-up">
-          <SiteHeader />
-        </div>
+      <div className="intro-fade">
+        <SiteHeader />
       </div>
 
       <ProjectIndex
@@ -57,7 +55,7 @@ const LandingPage = ({ contributions }: { contributions?: ReactNode }) => {
           className="flex font-bold uppercase leading-[0.8] tracking-tighter whitespace-nowrap text-[min(19vw,30svh)] -ml-[0.04em]"
         >
           {NAME.split("").map((c, i) => (
-            <span key={i} aria-hidden="true" className="char-up inline-block">
+            <span key={i} aria-hidden="true" className="intro-char inline-block" style={{ "--i": i } as CSSProperties}>
               {c}
             </span>
           ))}

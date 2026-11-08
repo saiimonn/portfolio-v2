@@ -88,9 +88,6 @@ const websiteJsonLd = {
   publisher: { "@id": PERSON_ID },
 };
 
-// Runs before first paint so returning visitors never see the preloader flash
-const preloadFlagScript = `try{if(sessionStorage.getItem("preloaded")==="1"||matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.dataset.preloaded="1"}catch(e){}`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -99,7 +96,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: preloadFlagScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLd(personJsonLd) }}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AsciiSpider from "./ascii-spider";
@@ -41,7 +41,8 @@ const ProjectIndex = ({ top, bottom, pitch = false }: Props) => {
                   onMouseEnter={() => setActive(i)}
                   onFocus={() => setActive(i)}
                   onBlur={() => setActive(null)}
-                  className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-3 py-3 [@media(max-height:820px)]:py-2"
+                  style={{ "--i": i } as CSSProperties}
+                  className="intro-row group grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-3 py-3 [@media(max-height:820px)]:py-2"
                 >
                   <span className="text-xs text-foreground/75 tabular-nums">{p.number}</span>
                   <span className="min-w-0">
@@ -72,7 +73,7 @@ const ProjectIndex = ({ top, bottom, pitch = false }: Props) => {
         {bottom}
       </div>
 
-      <aside aria-hidden="true" className="relative hidden lg:block min-h-0 overflow-hidden">
+      <aside aria-hidden="true" className="intro-fade relative hidden lg:block min-h-0 overflow-hidden" style={{ "--d": 300 } as CSSProperties}>
         <div
           className={`absolute inset-0 flex items-center justify-center [&_pre]:text-foreground/80 transition-opacity duration-500 ${
             active === null ? "opacity-100" : "opacity-0"

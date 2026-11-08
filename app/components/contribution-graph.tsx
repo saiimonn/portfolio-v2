@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { GITHUB_USER, type Contributions } from "@/app/data/github";
 
 const shade = ["bg-foreground/10", "bg-foreground/35", "bg-foreground/55", "bg-foreground/80", "bg-foreground"];
@@ -25,11 +26,12 @@ const ContributionGraph = ({ data }: { data: Contributions }) => {
         {Array.from({ length: lead }, (_, i) => (
           <span key={`pad-${i}`} />
         ))}
-        {data.days.map((d) => (
+        {data.days.map((d, i) => (
           <span
             key={d.date}
             title={`${d.count} on ${d.date}`}
-            className={`aspect-square rounded-[1px] ${shade[d.level]}`}
+            style={{ "--i": Math.floor((i + lead) / 7) } as CSSProperties}
+            className={`intro-cell aspect-square rounded-[1px] ${shade[d.level]}`}
           />
         ))}
       </span>

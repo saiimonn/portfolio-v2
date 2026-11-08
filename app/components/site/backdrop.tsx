@@ -96,7 +96,7 @@ const Backdrop = () => {
 
   return (
     <div className="fixed inset-0 -z-10 pointer-events-none bg-[#a3140a]" aria-hidden="true">
-      <canvas ref={ref} className="h-full w-full" />
+      <canvas ref={ref} className="intro-lights h-full w-full" />
       <div className="absolute inset-0 opacity-[0.14]" style={{ backgroundImage: NOISE }} />
     </div>
   );
