@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Nav from "@/app/components/navbar";
-import Footer from "@/app/components/landing/footer";
+import SiteHeader from "@/app/components/site/site-header";
+import SiteFooter from "@/app/components/site/site-footer";
 import { projects } from "@/app/data/projects";
 import { caseStudies } from "@/app/data/case-studies";
 import { OPEN_GRAPH, PERSON_ID, SITE_URL, jsonLd } from "@/app/data/site";
@@ -68,40 +68,38 @@ export default async function CaseStudyPage({ params }: Props) {
   };
 
   return (
-    <div className="bg-background min-h-screen text-foreground">
+    <div className="min-h-svh text-foreground">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(articleJsonLd) }}
       />
-      <div className="nav-wrapper fixed left-1/2 -translate-x-1/2 top-6 z-50">
-        <Nav />
-      </div>
+      <SiteHeader />
 
-      <main className="px-6 sm:px-8 md:px-16 pt-32 md:pt-40 pb-24 md:pb-32">
+      <main className="px-6 sm:px-8 md:px-12 pt-16 md:pt-24 pb-24 md:pb-32">
         <Link
           href="/projects"
-          className="relative inline-block py-3 -my-3 text-xs uppercase tracking-[0.2em] opacity-50 hover:opacity-100"
+          className="relative inline-block py-3 -my-3 text-xs uppercase tracking-[0.2em] text-foreground/75 hover:text-foreground transition-colors"
         >
           ← All projects
         </Link>
 
-        <h1 className="mt-6 text-[15vw] md:text-[10vw] font-bold uppercase leading-[0.85] tracking-tighter text-blood">
-          {project.name}
+        <h1 className="mt-6 text-6xl sm:text-7xl md:text-8xl xl:text-9xl font-semibold tracking-tighter leading-[0.9]">
+          {project.name}<span className="text-background">.</span>
         </h1>
-        <p className="mt-6 max-w-3xl text-lg md:text-2xl leading-relaxed opacity-90">
+        <p className="mt-6 max-w-3xl text-lg md:text-2xl leading-relaxed">
           {project.shortDesc}
         </p>
 
-        <dl className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 border-t border-white/10">
+        <dl className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 border-t border-foreground/20">
           {[
             { label: "Role", value: project.role },
             { label: "When", value: study.period },
             ...(study.release ? [{ label: "Release", value: study.release }] : []),
             { label: "Stack", value: project.stack.join(", ") },
           ].map((f) => (
-            <div key={f.label} className="border-b border-white/10 py-4">
-              <dt className="text-xs uppercase tracking-[0.2em] opacity-45">{f.label}</dt>
-              <dd className="mt-1.5 text-base opacity-85">{f.value}</dd>
+            <div key={f.label} className="border-b border-foreground/20 py-4">
+              <dt className="text-[11px] uppercase tracking-[0.2em] text-foreground/75">{f.label}</dt>
+              <dd className="mt-1.5 text-base">{f.value}</dd>
             </div>
           ))}
         </dl>
@@ -111,13 +109,13 @@ export default async function CaseStudyPage({ params }: Props) {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-block border rounded-full py-3 px-6 bg-white text-black hover:bg-white/20 hover:text-white ease-in transition-colors"
+            className="mt-8 inline-block rounded-full py-3 px-6 font-medium bg-foreground text-background hover:bg-background hover:text-foreground transition-colors"
           >
             {project.siteLink ? "Visit the site ↗" : "View the repository ↗"}
           </Link>
         )}
 
-        <div className="relative mt-16 aspect-16/10 w-full overflow-hidden rounded-xl border border-white/10">
+        <div className="relative mt-16 aspect-16/10 w-full overflow-hidden rounded-lg ring-1 ring-foreground/20 shadow-2xl">
           <Image
             src={project.img[0]}
             alt={`${project.name} screenshot`}
@@ -130,10 +128,10 @@ export default async function CaseStudyPage({ params }: Props) {
 
         <div className="mt-20 md:mt-28 flex flex-col gap-16 md:gap-20 max-w-3xl">
           <section>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-blood mb-6">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tighter mb-6">
               The problem
             </h2>
-            <div className="flex flex-col gap-5 text-base md:text-lg leading-relaxed opacity-85">
+            <div className="flex flex-col gap-5 text-base md:text-lg leading-relaxed">
               {study.problem.map((p) => (
                 <p key={p.slice(0, 40)}>{p}</p>
               ))}
@@ -141,12 +139,12 @@ export default async function CaseStudyPage({ params }: Props) {
           </section>
 
           <section>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-blood mb-6">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tighter mb-6">
               Main features
             </h2>
             <ul className="text-base md:text-lg leading-relaxed">
               {study.features.map((f) => (
-                <li key={f.slice(0, 40)} className="border-t border-white/10 py-4 opacity-85">
+                <li key={f.slice(0, 40)} className="border-t border-foreground/20 py-4">
                   {f}
                 </li>
               ))}
@@ -159,7 +157,7 @@ export default async function CaseStudyPage({ params }: Props) {
             {project.img.slice(1).map((src) => (
               <div
                 key={src}
-                className="relative aspect-16/10 overflow-hidden rounded-xl border border-white/10"
+                className="relative aspect-16/10 overflow-hidden rounded-lg ring-1 ring-foreground/20 shadow-2xl"
               >
                 <Image
                   src={src}
@@ -176,17 +174,17 @@ export default async function CaseStudyPage({ params }: Props) {
         {next && (
           <Link
             href={`/projects/${next.slug}`}
-            className="mt-24 md:mt-32 block border-t border-white/10 pt-8 group"
+            className="mt-24 md:mt-32 block border-t border-foreground/20 pt-8 group"
           >
-            <span className="text-xs uppercase tracking-[0.2em] opacity-45">Next case study</span>
-            <span className="mt-2 block text-5xl md:text-8xl font-medium tracking-tight group-hover:text-blood transition-colors">
-              {next.name} →
+            <span className="text-[11px] uppercase tracking-[0.2em] text-foreground/75">Next case study</span>
+            <span className="mt-2 flex text-5xl md:text-8xl font-semibold tracking-tighter items-center gap-4 motion-safe:transition-transform duration-500 group-hover:translate-x-3 group-focus-visible:translate-x-3">
+              {next.name} <span aria-hidden="true">→</span>
             </span>
           </Link>
         )}
       </main>
 
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }
